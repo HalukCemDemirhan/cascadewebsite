@@ -103,7 +103,12 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center bg-black text-white min-h-screen w-full p-8">
       <div className="flex flex-col items-center">
         {/* Entropy Animation in a contained box with transparent edges */}
-        <Entropy className="rounded-lg" size={400} />
+        <div className="hidden md:block">
+          <Entropy className="rounded-lg" size={400} />
+        </div>
+        <div className="block md:hidden">
+          <Entropy className="rounded-lg" size={280} />
+        </div>
         
         {/* Descriptive Text */}
         <div className="mt-8 text-center max-w-2xl relative">
