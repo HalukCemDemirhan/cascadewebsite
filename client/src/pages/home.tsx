@@ -7,12 +7,49 @@ export default function Home() {
   const [showWelcome, setShowWelcome] = useState(false)
   const [fadeOut, setFadeOut] = useState(false)
   const [location, setLocation] = useLocation();
+  const [showHint, setShowHint] = useState(false)
+  const [hintIndex, setHintIndex] = useState(0)
+  const [hintFading, setHintFading] = useState(false)
   
   // All letters that need to be clicked
   const allLetters = ['P', 'L', 'A', 'B', 'S']
   
+  // Hint texts
+  const hints = ['try spelling PLABS', 'some letters are clickable']
+  
   // Check if all letters are clicked
   const allLettersClicked = allLetters.every(letter => clickedLetters.has(letter))
+  
+  // Handle hint timing
+  useEffect(() => {
+    if (allLettersClicked) return // Don't show hints if puzzle is solved
+    
+    // Show first hint after 12 seconds
+    const firstHintTimer = setTimeout(() => {
+      setShowHint(true)
+    }, 12000)
+    
+    // Start rotating hints after 20 seconds (12 + 8)
+    const rotationTimer = setTimeout(() => {
+      const interval = setInterval(() => {
+        // Fade out current hint
+        setHintFading(true)
+        
+        // After fade out completes, change hint and fade in
+        setTimeout(() => {
+          setHintIndex(prev => (prev + 1) % hints.length)
+          setHintFading(false)
+        }, 300) // Wait for fade out animation
+      }, 8000) // Rotate every 8 seconds
+      
+      return () => clearInterval(interval)
+    }, 20000)
+    
+    return () => {
+      clearTimeout(firstHintTimer)
+      clearTimeout(rotationTimer)
+    }
+  }, [allLettersClicked, hints.length])
   
   // Handle navigation to white page
   const navigateToWhitePage = () => {
@@ -44,7 +81,7 @@ export default function Home() {
           setTimeout(() => {
             navigateToWhitePage()
           }, 800) // Match fade-out animation duration
-        }, 1000)
+        }, 1650) // Increased from 1000ms to 2000ms
       }, 1300)
       
       return () => clearTimeout(timer)
@@ -69,7 +106,7 @@ export default function Home() {
         <Entropy className="rounded-lg" size={400} />
         
         {/* Descriptive Text */}
-        <div className="mt-8 text-center max-w-2xl">
+        <div className="mt-8 text-center max-w-2xl relative">
           <p className="text-gray-300 text-2xl leading-relaxed italic tracking-wide" style={{ wordSpacing: '0.3em' }}>
             <span 
               className={`cursor-pointer hover:text-white transition-all duration-300 ${clickedLetters.has('P') ? 'text-blue-600 font-bold' : ''}`}
@@ -98,6 +135,13 @@ export default function Home() {
               S
             </span>ilence
           </p>
+          
+          {/* Hint Text */}
+          {showHint && !allLettersClicked && (
+            <p className={`text-gray-500 text-sm text-center absolute top-full inset-x-0 mx-auto mt-4 transition-opacity duration-300 w-full ${hintFading ? 'opacity-0' : 'opacity-100'}`}>
+              {hints[hintIndex]}
+            </p>
+          )}
         </div>
       </div>
     </div>

@@ -1,7 +1,10 @@
 import { useEffect } from "react";
-import logoPath from "@assets/logo-black_1751190410212.png";
+import { useLocation } from "wouter";
+import logoPath from "@assets/network-logo.png";
 
 export default function White() {
+  const [location, setLocation] = useLocation();
+
   useEffect(() => {
     // Smooth scrolling for anchor links
     const handleAnchorClick = (e: Event) => {
@@ -22,22 +25,29 @@ export default function White() {
     return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
 
+  const handleLogoClick = () => {
+    setLocation('/');
+  };
+
   return (
     <div className="bg-white text-black min-h-screen">
       {/* Header */}
       <header className="w-full pt-12 pb-8 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
           <div className="mb-2">
-            <img 
-              src={logoPath} 
-              alt="Company Logo" 
-              className="h-12 md:h-16 w-auto"
-            />
+            <div 
+              onClick={handleLogoClick}
+              className="cursor-pointer w-fit"
+            >
+              <img 
+                src={logoPath} 
+                alt="Company Logo" 
+                className="h-16 md:h-24 w-auto hover:opacity-80 transition-opacity duration-200"
+              />
+            </div>
           </div>
         </div>
       </header>
-
-
 
       {/* Main Content */}
       <main className="w-full px-8 md:px-16 pb-8">
@@ -45,80 +55,71 @@ export default function White() {
           
           {/* Intro Section */}
           <section id="research" className="mb-12">
-            <h1 className="text-xl md:text-2xl font-bold text-black mb-6">
-              Interpretability: The Critical Path to Safe Superintelligence
+            <h1 className="text-xl md:text-2xl text-gray-600 mb-6 italic">
+              Modelling Perception Systems
             </h1>
             
-            <p className="text-base md:text-lg line-height-academic text-black mb-4">
-              We stand at the threshold of creating systems with capabilities that will far exceed human 
-              understanding. But we cannot safely build what we do not understand.
-            </p>
-            
-            <p className="text-base md:text-lg line-height-academic text-black font-semibold mb-8">
-              Interpretability is not merely a safety tool—it is the essential catalyst that will unlock 
-              superintelligence itself.
+            <p className="text-lg md:text-xl line-height-academic text-gray-600 mb-8 italic">
+              Outcomes are no longer driven by intent, but by how ideas move through networks 
+              of belief, identity, and influence.
             </p>
           </section>
 
           {/* Research Areas */}
-          <section className="mb-12">
+          <section className="mb-4">
             <h2 className="text-lg md:text-xl font-bold text-black mb-4">
-              I. Understanding trumps acceleration
+              I. Narrative Battlefields aren't Linear
             </h2>
-            <p className="text-base line-height-academic text-black mb-6">
-              Reverse-engineering neural computation reveals the algorithms and complexities that drive 
-              intelligence. By decoding these mechanisms, we can systematically and safely improve them rather 
-              than relying on blind scaling.
+            <p className="text-lg line-height-academic text-black mb-6">
+              Information landscapes no longer behave linearly and public discourse unfolds in what seems to be unpredictable stages. It moves through decentralized networks; shifting, fragmenting, and accelerating along random paths. Yet we still rely on static strategies in a dynamic world.
             </p>
-
-            <h2 className="text-lg md:text-xl font-bold text-black mb-4">
-              II. Interpretability transforms black-box evolution into directed design
-            </h2>
-            <p className="text-base line-height-academic text-black mb-6">
-              Current AI progress resembles natural selection—powerful but inefficient. Interpretable training 
-              will enable us to engineer intelligence with the precision of designing a microchip.
+            <p className="text-lg line-height-academic text-black mb-6">
+              This isn't a failure of intelligence. It is a failure of instrumentation.
             </p>
 
             <h2 className="text-lg md:text-xl font-bold text-black mb-4">
-              III. Safety and capability are fundamentally linked
+              II. Structure in Chaos
             </h2>
-            <p className="text-base line-height-academic text-black mb-8">
-              Systems we cannot understand will hit capability ceilings due to alignment failures. Only with 
-              truly interpretable systems can AI be safely pushed to theoretical limits.
+            <p className="text-lg line-height-academic text-black mb-6">
+              What appears chaotic on the surface is shaped by deeper forces: emotional resonance, identity 
+              signaling, group alignment, narrative gravity. These dynamics do not follow the logic of 
+              messaging. They follow the logic of systems.
             </p>
-          </section>
-
-          {/* Approach Section */}
-          <section id="approach" className="mb-12">
-            <h2 className="text-lg md:text-xl font-bold text-black mb-6">Our Approach</h2>
-            
-            <h3 className="text-base md:text-lg font-bold text-black mb-3">
-              I. We focus on a proof-based setting involving programming invariants and mathematical reasoning.
-            </h3>
-            <p className="text-base line-height-academic text-black mb-6">
-              We have external measures of complexity that enable predictions about actual capabilities while 
-              others are limited to post-hoc explanations or weak statistical correlations. Pulling ground truth 
-              from formal logic means we are unbounded by conveniences that depend on data availability. We can scale 
-              to arbitrary levels of difficulty or complexity by programmatically generating ground truth.
+            <p className="text-lg line-height-academic text-black mb-6">
+              There is a shape to how people absorb, distort, and transmit meaning, and we are building a 
+              grammar that can describe it.
             </p>
 
-            <h3 className="text-base md:text-lg font-bold text-black mb-3">
-              II. We build for real-world use from day one
-            </h3>
-            <p className="text-base line-height-academic text-black mb-6">
-              Our interpretability tools are designed to be used by AI developers immediately, creating a virtuous 
-              cycle of research and application.
+            <h2 className="text-lg md:text-xl font-bold text-black mb-4">
+              III. Simulation as a Method
+            </h2>
+            <p className="text-lg line-height-academic text-black mb-6">
+              If behavior is shaped by narrative, and narrative moves through networks, then we must treat 
+              public discourse as a system that can be modeled; not just analyzed, but explored.
+            </p>
+            <p className="text-lg line-height-academic text-black mb-8">
+              This is not about prediction in the statistical sense. It is about simulation in the systems sense: 
+              understanding the structure well enough to intervene thoughtfully and to make sense of a world 
+              that constantly reshapes itself.
             </p>
 
-            <h3 className="text-base md:text-lg font-bold text-black mb-3">
-              III. We are unlike other labs. Join Us.
-            </h3>
+            <h2 className="text-lg md:text-xl font-bold text-black mb-4">
+              Perception as Terrain
+            </h2>
+            <p className="text-lg line-height-academic text-black mb-6">
+              Public perception fundamentally shapes outcomes across society, politics, and markets. Until we 
+              understand the architecture of collective perception, until we treat it as a system, we will remain 
+              at the mercy of forces we cannot see.
+            </p>
+            <p className="text-lg line-height-academic text-black mb-2">
+              We believe this is the most important modeling and simulation problem of our time.
+            </p>
           </section>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="w-full py-8 px-8 md:px-16">
+      <footer className="w-full pt-4 pb-8 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
           <div className="flex flex-wrap gap-4 text-sm">
             <a href="#" className="academic-link">adam</a>

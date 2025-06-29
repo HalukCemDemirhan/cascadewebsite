@@ -1,8 +1,8 @@
-# dmodel - AI Interpretability Research Platform
+# Perception Labs - Perception Systems Modeling Platform
 
 ## Overview
 
-This is a full-stack web application for an AI interpretability research organization called "dmodel". The platform serves as an academic website showcasing research publications and work focused on understanding and safely building superintelligent AI systems. The application follows a modern React frontend with Express backend architecture, utilizing PostgreSQL for data persistence and featuring a comprehensive UI component library.
+This is a full-stack web application for a research organization called "Perception Labs". The platform serves as an academic website showcasing research and work focused on modeling perception systems and understanding how ideas move through networks of belief, identity, and influence. The application follows a modern React frontend with Express backend architecture, utilizing PostgreSQL for data persistence and featuring a comprehensive UI component library.
 
 ## System Architecture
 
