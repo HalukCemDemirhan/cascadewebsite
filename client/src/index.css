@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 0%);
+  --muted: hsl(0, 0%, 96%);
+  --muted-foreground: hsl(0, 0%, 40%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(0, 0%, 0%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 0%);
+  --border: hsl(0, 0%, 90%);
+  --input: hsl(0, 0%, 90%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 96%);
+  --secondary-foreground: hsl(0, 0%, 9%);
+  --accent: hsl(0, 0%, 96%);
+  --accent-foreground: hsl(0, 0%, 9%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(0, 0%, 0%);
+  --radius: 0.5rem;
+  
+  /* Academic-specific colors */
+  --academic-blue: hsl(221, 83%, 53%);
+  --academic-blue-hover: hsl(221, 83%, 45%);
+  --academic-gray: hsl(0, 0%, 50%);
+  --academic-border: hsl(0, 0%, 85%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 4%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 4%, 16%);
+  --muted-foreground: hsl(240, 5%, 65%);
+  --popover: hsl(240, 10%, 4%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 4%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 4%, 16%);
+  --input: hsl(240, 4%, 16%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(240, 4%, 16%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 4%, 16%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 63%, 31%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 5%, 84%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Crimson Text', Georgia, 'Times New Roman', serif;
+  }
+  
+  /* Academic content styling */
+  .academic-content {
+    line-height: 1.6;
+  }
+  
+  .academic-content p {
+    margin-bottom: 1.25rem;
+  }
+  
+  .academic-content h1, 
+  .academic-content h2, 
+  .academic-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .academic-content h1:first-child,
+  .academic-content h2:first-child {
+    margin-top: 0;
+  }
+  
+  /* Typography improvements */
+  .max-reading {
+    max-width: 65ch;
+  }
+  
+  .line-height-academic {
+    line-height: 1.6;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom link styles */
+  .academic-link {
+    color: var(--academic-blue);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .academic-link:hover {
+    color: var(--academic-blue-hover);
+  }
+  
+  /* Publication styling */
+  .publication-item {
+    border-left: 2px solid var(--academic-border);
+    padding-left: 1rem;
+  }
+}
+
+@layer utilities {
+  .text-academic-blue {
+    color: var(--academic-blue);
+  }
+  
+  .text-academic-gray {
+    color: var(--academic-gray);
+  }
+  
+  .border-academic {
+    border-color: var(--academic-border);
+  }
+}
