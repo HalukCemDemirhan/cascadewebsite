@@ -4,8 +4,8 @@ import { storage } from "./storage";
 import { z } from "zod";
 import crypto from "crypto";
 
-// Simple password for investor access - in production this would be more secure
-const INVESTOR_PASSWORD = "PerceptionLabs2024!";
+// Complex password for investor access - in production this would be more secure
+const INVESTOR_PASSWORD = "PL_9x7$Neural#Dynamics2024&Perception";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Investor authentication routes
