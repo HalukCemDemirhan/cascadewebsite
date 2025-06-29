@@ -112,7 +112,7 @@ export default function Home() {
         
         {/* Descriptive Text */}
         <div className="mt-8 text-center max-w-2xl relative">
-          <p className="text-gray-300 text-2xl leading-relaxed italic tracking-wide" style={{ wordSpacing: '0.3em' }}>
+          <p className="text-gray-300 text-lg md:text-2xl leading-relaxed italic tracking-wide" style={{ wordSpacing: '0.3em' }}>
             <span 
               className={`cursor-pointer hover:text-white transition-all duration-300 ${clickedLetters.has('P') ? 'text-blue-600 font-bold' : ''}`}
               onClick={() => handleLetterClick('P')}
