@@ -68,21 +68,6 @@ export default function Home() {
                 Our Approach
               </a>
             </li>
-            <li>
-              <a href="#publications" className="academic-link">
-                Publications
-              </a>
-            </li>
-            <li>
-              <a href="#team" className="academic-link">
-                Team
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="academic-link">
-                Contact
-              </a>
-            </li>
           </ul>
         </div>
       </nav>
@@ -163,78 +148,20 @@ export default function Home() {
             </h3>
           </section>
 
-          {/* Publications Section */}
-          <section id="publications" className="mb-12">
-            <h2 className="text-lg md:text-xl font-bold text-black mb-6">Recent Publications</h2>
-            <div className="space-y-4">
-              {publications.map((publication, index) => (
-                <article key={index} className="publication-item">
-                  <h3 className="text-base font-semibold text-black mb-2">
-                    {publication.title}
-                  </h3>
-                  <p className="text-sm text-academic-gray mb-2">
-                    {publication.authors}
-                  </p>
-                  <p className="text-sm text-academic-gray">
-                    {publication.venue}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </section>
 
-          {/* Team Section */}
-          <section id="team" className="mb-12">
-            <h2 className="text-lg md:text-xl font-bold text-black mb-6">Team</h2>
-            <p className="text-base line-height-academic text-black mb-4">
-              Our interdisciplinary team combines expertise in machine learning, formal methods, cognitive 
-              science, and safety research.
-            </p>
-            <p className="text-base line-height-academic text-black">
-              We are actively recruiting researchers who share our vision of building interpretable AI systems.{' '}
-              <a href="#contact" className="academic-link">
-                Get in touch
-              </a>{' '}
-              if you're interested in joining our mission.
-            </p>
-          </section>
-
-          {/* Contact Section */}
-          <section id="contact" className="mb-12">
-            <h2 className="text-lg md:text-xl font-bold text-black mb-6">Contact</h2>
-            <p className="text-base line-height-academic text-black mb-4">
-              For research collaborations, career opportunities, or general inquiries:
-            </p>
-            <div className="space-y-2">
-              <p className="text-base text-black">
-                <strong>Email:</strong>{' '}
-                <a href="mailto:research@dmodel.ai" className="academic-link">
-                  research@dmodel.ai
-                </a>
-              </p>
-              <p className="text-base text-black">
-                <strong>Address:</strong> Stanford Research Park, Palo Alto, CA
-              </p>
-            </div>
-          </section>
 
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t border-academic py-8 px-6 md:px-8">
+      <footer className="w-full py-8 px-6 md:px-8">
         <div className="max-reading mx-auto">
-          <div className="flex flex-wrap justify-between items-center gap-4 text-sm">
-            <div className="flex gap-4">
-              <a href="#" className="academic-link">blog</a>
-              <span className="text-academic-gray">|</span>
-              <a href="#" className="academic-link">anish</a>
-              <span className="text-academic-gray">|</span>
-              <a href="#" className="academic-link">dmoon</a>
-            </div>
-            <div className="text-academic-gray">
-              <span>© 2024 dmodel. All rights reserved.</span>
-            </div>
+          <div className="flex flex-wrap gap-4 text-sm">
+            <a href="#" className="academic-link">blog</a>
+            <span className="text-academic-gray">|</span>
+            <a href="#" className="academic-link">anish</a>
+            <span className="text-academic-gray">|</span>
+            <a href="#" className="academic-link">dmoon</a>
           </div>
         </div>
       </footer>
