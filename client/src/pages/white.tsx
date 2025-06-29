@@ -37,23 +37,7 @@ export default function White() {
         </div>
       </header>
 
-      {/* Navigation */}
-      <nav className="w-full px-6 md:px-8 mb-8">
-        <div className="max-reading mx-auto">
-          <ul className="flex flex-wrap gap-4 text-sm">
-            <li>
-              <a href="#research" className="academic-link">
-                Research
-              </a>
-            </li>
-            <li>
-              <a href="#approach" className="academic-link">
-                Our Approach
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+
 
       {/* Main Content */}
       <main className="w-full px-6 md:px-8 pb-16">
