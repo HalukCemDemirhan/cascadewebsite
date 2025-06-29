@@ -11,12 +11,15 @@ export default function White() {
       const target = e.target as HTMLAnchorElement;
       if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
         e.preventDefault();
-        const targetElement = document.querySelector(target.getAttribute('href')!);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+        const href = target.getAttribute('href')!;
+        if (href !== '#') {
+          const targetElement = document.querySelector(href);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
         }
       }
     };
@@ -126,7 +129,12 @@ export default function White() {
             <span className="text-academic-gray">|</span>
             <a href="#" className="academic-link">amgad</a>
             <span className="text-academic-gray">|</span>
-            <a href="#" className="academic-link">investors</a>
+            <button 
+              onClick={() => setLocation('/investors')} 
+              className="academic-link bg-transparent border-none p-0 text-inherit cursor-pointer"
+            >
+              investors
+            </button>
           </div>
         </div>
       </footer>
