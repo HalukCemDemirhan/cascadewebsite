@@ -3,22 +3,59 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 
 export default function Home() {
-  const [startVisible, setStartVisible] = useState(false)
+  const [clickedLetters, setClickedLetters] = useState<Set<string>>(new Set())
+  const [showWelcome, setShowWelcome] = useState(false)
   const [location, setLocation] = useLocation();
+  
+  // All letters that need to be clicked
+  const allLetters = ['P', 'L', 'A', 'B', 'S']
+  
+  // Check if all letters are clicked
+  const allLettersClicked = allLetters.every(letter => clickedLetters.has(letter))
   
   // Handle navigation to white page
   const navigateToWhitePage = () => {
     setLocation('/white')
   }
   
-  // Fade in the start button after animation loads
+  // Handle letter click - toggle highlight
+  const handleLetterClick = (letterId: string) => {
+    setClickedLetters(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(letterId)) {
+        newSet.delete(letterId)
+      } else {
+        newSet.add(letterId)
+      }
+      return newSet
+    })
+  }
+  
+  // Handle all letters clicked
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setStartVisible(true)
-    }, 2000)
-    
-    return () => clearTimeout(timer)
-  }, [])
+    if (allLettersClicked) {
+      const timer = setTimeout(() => {
+        setShowWelcome(true)
+        // Navigate after welcome screen shows
+        setTimeout(() => {
+          navigateToWhitePage()
+        }, 1500)
+      }, 1300)
+      
+      return () => clearTimeout(timer)
+    }
+  }, [allLettersClicked])
+
+  // If showing welcome screen
+  if (showWelcome) {
+    return (
+      <div className="flex items-center justify-center bg-black text-white min-h-screen w-full">
+        <div className="text-center animate-fade-in">
+          <h1 className="text-4xl font-light tracking-wide">Welcome</h1>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="flex flex-col items-center justify-center bg-black text-white min-h-screen w-full p-8">
@@ -26,23 +63,36 @@ export default function Home() {
         {/* Entropy Animation in a contained box with transparent edges */}
         <Entropy className="rounded-lg" size={400} />
         
-        {/* Simple Elegant Text Button with Pulsing Effect */}
-        <div 
-          className={`
-            mt-8 transition-all duration-1500 ease-out
-            ${startVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-          `}
-        >
-          <button 
-            onClick={navigateToWhitePage}
-            className="
-              text-white text-2xl tracking-[0.2em] uppercase font-extralight
-              transition-all duration-700
-              hover:tracking-[0.3em] animate-pulse
-            "
-          >
-            Enter
-          </button>
+        {/* Descriptive Text */}
+        <div className="mt-8 text-center max-w-2xl">
+          <p className="text-gray-300 text-2xl leading-relaxed italic tracking-wide" style={{ wordSpacing: '0.3em' }}>
+            <span 
+              className={`cursor-pointer hover:text-white transition-all duration-300 ${clickedLetters.has('P') ? 'text-blue-600 font-bold' : ''}`}
+              onClick={() => handleLetterClick('P')}
+            >
+              P
+            </span>erception <span 
+              className={`cursor-pointer hover:text-white transition-all duration-300 ${clickedLetters.has('L') ? 'text-blue-600 font-bold' : ''}`}
+              onClick={() => handleLetterClick('L')}
+            >
+              L
+            </span>eads <span 
+              className={`cursor-pointer hover:text-white transition-all duration-300 ${clickedLetters.has('A') ? 'text-blue-600 font-bold' : ''}`}
+              onClick={() => handleLetterClick('A')}
+            >
+              A
+            </span>ll <span 
+              className={`cursor-pointer hover:text-white transition-all duration-300 ${clickedLetters.has('B') ? 'text-blue-600 font-bold' : ''}`}
+              onClick={() => handleLetterClick('B')}
+            >
+              B
+            </span>attles in <span 
+              className={`cursor-pointer hover:text-white transition-all duration-300 ${clickedLetters.has('S') ? 'text-blue-600 font-bold' : ''}`}
+              onClick={() => handleLetterClick('S')}
+            >
+              S
+            </span>ilence
+          </p>
         </div>
       </div>
     </div>
