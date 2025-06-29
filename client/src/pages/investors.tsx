@@ -90,43 +90,41 @@ export default function Investors() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-white text-black p-8">
-        <div className="max-w-4xl mx-auto">
+      <div className="min-h-screen bg-white text-black flex items-center justify-center p-8">
+        <div className="w-full max-w-md">
           {/* Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-xl font-light text-gray-600">Investor Portal</h2>
           </div>
 
           {/* Password Form */}
-          <div className="flex justify-center">
-            <Card className="w-full max-w-md border-gray-200">
-              <CardHeader>
-                <CardTitle className="text-center text-lg font-light">Access Required</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input
-                    type="password"
-                    placeholder="Enter password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="border-gray-300 focus:border-black"
-                    disabled={loginMutation.isPending}
-                  />
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-black text-white hover:bg-gray-800"
-                    disabled={loginMutation.isPending}
-                  >
-                    {loginMutation.isPending ? 'Verifying...' : 'Access Portal'}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
+          <Card className="border-gray-200 mb-6">
+            <CardHeader>
+              <CardTitle className="text-center text-lg font-light">Access Required</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <Input
+                  type="password"
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="border-gray-300 focus:border-black"
+                  disabled={loginMutation.isPending}
+                />
+                <Button 
+                  type="submit" 
+                  className="w-full bg-black text-white hover:bg-gray-800"
+                  disabled={loginMutation.isPending}
+                >
+                  {loginMutation.isPending ? 'Verifying...' : 'Access Portal'}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
 
           {/* Back link */}
-          <div className="text-center mt-8">
+          <div className="text-center">
             <button 
               onClick={() => setLocation('/white')}
               className="text-gray-600 hover:text-black underline text-sm"
