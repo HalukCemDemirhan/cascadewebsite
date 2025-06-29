@@ -10,13 +10,14 @@ import { apiRequest } from "@/lib/queryClient";
 export default function Investors() {
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [location, setLocation] = useLocation();
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
   // Check if already authenticated
   useEffect(() => {
-    const sessionId = localStorage.getItem('investor_session');
+    const sessionId = sessionStorage.getItem('investor_session'); // Use sessionStorage instead of localStorage
     if (sessionId) {
       // Verify session with backend
       fetch(`/api/investor/verify`, {
@@ -29,12 +30,20 @@ export default function Investors() {
         if (data.valid) {
           setIsAuthenticated(true);
         } else {
-          localStorage.removeItem('investor_session');
+          sessionStorage.removeItem('investor_session');
+          setIsAuthenticated(false);
         }
       })
       .catch(() => {
-        localStorage.removeItem('investor_session');
+        sessionStorage.removeItem('investor_session');
+        setIsAuthenticated(false);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
+    } else {
+      setIsAuthenticated(false);
+      setIsLoading(false);
     }
   }, []);
 
@@ -45,7 +54,7 @@ export default function Investors() {
       return data;
     },
     onSuccess: (data: any) => {
-      localStorage.setItem('investor_session', data.sessionId);
+      sessionStorage.setItem('investor_session', data.sessionId);
       setIsAuthenticated(true);
       toast({
         title: "Access granted",
@@ -67,6 +76,19 @@ export default function Investors() {
       loginMutation.mutate(password);
     }
   };
+
+  // Show loading state while checking authentication
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white text-black p-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center">
+            <div className="text-gray-500">Loading...</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!isAuthenticated) {
     return (
@@ -141,8 +163,12 @@ export default function Investors() {
           </p>
           <button
             onClick={() => {
-              localStorage.removeItem('investor_session');
+              sessionStorage.removeItem('investor_session');
               setIsAuthenticated(false);
+              toast({
+                title: "Logged out",
+                description: "You have been successfully logged out",
+              });
             }}
             className="text-gray-600 hover:text-black underline text-sm mr-6"
           >
