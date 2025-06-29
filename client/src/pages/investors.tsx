@@ -74,8 +74,6 @@ export default function Investors() {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-3xl font-light tracking-wide mb-4">Perception Labs</h1>
-            <div className="w-24 h-px bg-black mx-auto mb-8"></div>
             <h2 className="text-xl font-light text-gray-600">Investor Portal</h2>
           </div>
 
@@ -126,8 +124,6 @@ export default function Investors() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-light tracking-wide mb-4">Perception Labs</h1>
-          <div className="w-24 h-px bg-black mx-auto mb-8"></div>
           <h2 className="text-xl font-light text-gray-600">Investor Updates</h2>
         </div>
 
