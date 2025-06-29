@@ -25,8 +25,8 @@ export default function White() {
   return (
     <div className="bg-white text-black min-h-screen">
       {/* Header */}
-      <header className="w-full py-8 px-6 md:px-8">
-        <div className="max-reading mx-auto">
+      <header className="w-full pt-12 pb-8 px-8 md:px-16">
+        <div className="max-w-2xl mx-auto">
           <div className="mb-2">
             <img 
               src={logoPath} 
@@ -40,8 +40,8 @@ export default function White() {
 
 
       {/* Main Content */}
-      <main className="w-full px-6 md:px-8 pb-16">
-        <div className="max-reading mx-auto academic-content">
+      <main className="w-full px-8 md:px-16 pb-8">
+        <div className="max-w-2xl mx-auto academic-content">
           
           {/* Intro Section */}
           <section id="research" className="mb-12">
@@ -118,14 +118,14 @@ export default function White() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full py-8 px-6 md:px-8">
-        <div className="max-reading mx-auto">
+      <footer className="w-full py-8 px-8 md:px-16">
+        <div className="max-w-2xl mx-auto">
           <div className="flex flex-wrap gap-4 text-sm">
-            <a href="#" className="academic-link">blog</a>
+            <a href="#" className="academic-link">adam</a>
             <span className="text-academic-gray">|</span>
-            <a href="#" className="academic-link">anish</a>
+            <a href="#" className="academic-link">amgad</a>
             <span className="text-academic-gray">|</span>
-            <a href="#" className="academic-link">dmoon</a>
+            <a href="#" className="academic-link">investors</a>
           </div>
         </div>
       </footer>

@@ -5,6 +5,7 @@ import { useLocation } from 'wouter';
 export default function Home() {
   const [clickedLetters, setClickedLetters] = useState<Set<string>>(new Set())
   const [showWelcome, setShowWelcome] = useState(false)
+  const [fadeOut, setFadeOut] = useState(false)
   const [location, setLocation] = useLocation();
   
   // All letters that need to be clicked
@@ -36,10 +37,14 @@ export default function Home() {
     if (allLettersClicked) {
       const timer = setTimeout(() => {
         setShowWelcome(true)
-        // Navigate after welcome screen shows
+        // Start fade-out after welcome screen shows for a bit
         setTimeout(() => {
-          navigateToWhitePage()
-        }, 1500)
+          setFadeOut(true)
+          // Navigate after fade-out completes
+          setTimeout(() => {
+            navigateToWhitePage()
+          }, 800) // Match fade-out animation duration
+        }, 1000)
       }, 1300)
       
       return () => clearTimeout(timer)
@@ -50,7 +55,7 @@ export default function Home() {
   if (showWelcome) {
     return (
       <div className="flex items-center justify-center bg-black text-white min-h-screen w-full">
-        <div className="text-center animate-fade-in">
+        <div className={`text-center ${fadeOut ? 'animate-fade-out' : 'animate-fade-in'}`}>
           <h1 className="text-4xl font-light tracking-wide">Welcome</h1>
         </div>
       </div>
