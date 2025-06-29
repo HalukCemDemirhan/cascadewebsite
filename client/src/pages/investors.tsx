@@ -82,12 +82,8 @@ export default function Investors() {
   // Show loading state while checking authentication
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-white text-black p-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center">
-            <div className="text-gray-500">Loading...</div>
-          </div>
-        </div>
+      <div className="min-h-screen bg-white text-black flex items-center justify-center">
+        <div className="text-gray-500 text-lg">Loading...</div>
       </div>
     );
   }
