@@ -1,170 +1,50 @@
-import { useEffect } from "react";
-
-interface Publication {
-  title: string;
-  authors: string;
-  venue: string;
-}
-
-const publications: Publication[] = [
-  {
-    title: "Mechanistic Interpretability of Neural Networks in Formal Reasoning",
-    authors: "Smith, J., Johnson, A., et al.",
-    venue: "Conference on Neural Information Processing Systems (NeurIPS) 2024"
-  },
-  {
-    title: "Proof-Based Training for Interpretable AI Systems", 
-    authors: "Chen, L., Williams, R., et al.",
-    venue: "International Conference on Machine Learning (ICML) 2024"
-  }
-];
+import { Entropy } from "@/components/ui/entropy";
+import { useState, useEffect } from 'react';
+import { useLocation } from 'wouter';
 
 export default function Home() {
+  const [startVisible, setStartVisible] = useState(false)
+  const [location, setLocation] = useLocation();
+  
+  // Handle navigation to white page
+  const navigateToWhitePage = () => {
+    setLocation('/white')
+  }
+  
+  // Fade in the start button after animation loads
   useEffect(() => {
-    // Smooth scrolling for anchor links
-    const handleAnchorClick = (e: Event) => {
-      const target = e.target as HTMLAnchorElement;
-      if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
-        e.preventDefault();
-        const targetElement = document.querySelector(target.getAttribute('href')!);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }
-    };
-
-    document.addEventListener('click', handleAnchorClick);
-    return () => document.removeEventListener('click', handleAnchorClick);
-  }, []);
+    const timer = setTimeout(() => {
+      setStartVisible(true)
+    }, 2000)
+    
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
-    <div className="bg-white text-black min-h-screen">
-      {/* Header */}
-      <header className="w-full py-8 px-6 md:px-8">
-        <div className="max-reading mx-auto">
-          <div className="mb-2">
-            <h1 className="text-2xl md:text-3xl font-normal italic text-black">
-              d<sub>model</sub>
-            </h1>
-            <p className="text-sm md:text-base text-black mt-1">look inside the model</p>
-          </div>
+    <div className="flex flex-col items-center justify-center bg-black text-white min-h-screen w-full p-8">
+      <div className="flex flex-col items-center">
+        {/* Entropy Animation in a contained box with transparent edges */}
+        <Entropy className="rounded-lg" size={400} />
+        
+        {/* Simple Elegant Text Button with Pulsing Effect */}
+        <div 
+          className={`
+            mt-8 transition-all duration-1500 ease-out
+            ${startVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+          `}
+        >
+          <button 
+            onClick={navigateToWhitePage}
+            className="
+              text-white text-2xl tracking-[0.2em] uppercase font-extralight
+              transition-all duration-700
+              hover:tracking-[0.3em] animate-pulse
+            "
+          >
+            Enter
+          </button>
         </div>
-      </header>
-
-      {/* Navigation */}
-      <nav className="w-full px-6 md:px-8 mb-8">
-        <div className="max-reading mx-auto">
-          <ul className="flex flex-wrap gap-4 text-sm">
-            <li>
-              <a href="#research" className="academic-link">
-                Research
-              </a>
-            </li>
-            <li>
-              <a href="#approach" className="academic-link">
-                Our Approach
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      {/* Main Content */}
-      <main className="w-full px-6 md:px-8 pb-16">
-        <div className="max-reading mx-auto academic-content">
-          
-          {/* Intro Section */}
-          <section id="research" className="mb-12">
-            <h1 className="text-xl md:text-2xl font-bold text-black mb-6">
-              Interpretability: The Critical Path to Safe Superintelligence
-            </h1>
-            
-            <p className="text-base md:text-lg line-height-academic text-black mb-4">
-              We stand at the threshold of creating systems with capabilities that will far exceed human 
-              understanding. But we cannot safely build what we do not understand.
-            </p>
-            
-            <p className="text-base md:text-lg line-height-academic text-black font-semibold mb-8">
-              Interpretability is not merely a safety tool—it is the essential catalyst that will unlock 
-              superintelligence itself.
-            </p>
-          </section>
-
-          {/* Research Areas */}
-          <section className="mb-12">
-            <h2 className="text-lg md:text-xl font-bold text-black mb-4">
-              I. Understanding trumps acceleration
-            </h2>
-            <p className="text-base line-height-academic text-black mb-6">
-              Reverse-engineering neural computation reveals the algorithms and complexities that drive 
-              intelligence. By decoding these mechanisms, we can systematically and safely improve them rather 
-              than relying on blind scaling.
-            </p>
-
-            <h2 className="text-lg md:text-xl font-bold text-black mb-4">
-              II. Interpretability transforms black-box evolution into directed design
-            </h2>
-            <p className="text-base line-height-academic text-black mb-6">
-              Current AI progress resembles natural selection—powerful but inefficient. Interpretable training 
-              will enable us to engineer intelligence with the precision of designing a microchip.
-            </p>
-
-            <h2 className="text-lg md:text-xl font-bold text-black mb-4">
-              III. Safety and capability are fundamentally linked
-            </h2>
-            <p className="text-base line-height-academic text-black mb-8">
-              Systems we cannot understand will hit capability ceilings due to alignment failures. Only with 
-              truly interpretable systems can AI be safely pushed to theoretical limits.
-            </p>
-          </section>
-
-          {/* Approach Section */}
-          <section id="approach" className="mb-12">
-            <h2 className="text-lg md:text-xl font-bold text-black mb-6">Our Approach</h2>
-            
-            <h3 className="text-base md:text-lg font-bold text-black mb-3">
-              I. We focus on a proof-based setting involving programming invariants and mathematical reasoning.
-            </h3>
-            <p className="text-base line-height-academic text-black mb-6">
-              We have external measures of complexity that enable predictions about actual capabilities while 
-              others are limited to post-hoc explanations or weak statistical correlations. Pulling ground truth 
-              from formal logic means we are unbounded by conveniences that depend on data availability. We can scale 
-              to arbitrary levels of difficulty or complexity by programmatically generating ground truth.
-            </p>
-
-            <h3 className="text-base md:text-lg font-bold text-black mb-3">
-              II. We build for real-world use from day one
-            </h3>
-            <p className="text-base line-height-academic text-black mb-6">
-              Our interpretability tools are designed to be used by AI developers immediately, creating a virtuous 
-              cycle of research and application.
-            </p>
-
-            <h3 className="text-base md:text-lg font-bold text-black mb-3">
-              III. We are unlike other labs. Join Us.
-            </h3>
-          </section>
-
-
-
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="w-full py-8 px-6 md:px-8">
-        <div className="max-reading mx-auto">
-          <div className="flex flex-wrap gap-4 text-sm">
-            <a href="#" className="academic-link">blog</a>
-            <span className="text-academic-gray">|</span>
-            <a href="#" className="academic-link">anish</a>
-            <span className="text-academic-gray">|</span>
-            <a href="#" className="academic-link">dmoon</a>
-          </div>
-        </div>
-      </footer>
+      </div>
     </div>
   );
 }

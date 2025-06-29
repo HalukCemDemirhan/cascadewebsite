@@ -58,9 +58,24 @@
     @apply border-border;
   }
 
+  html {
+    background-color: #000000;
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply antialiased;
     font-family: 'Crimson Text', Georgia, 'Times New Roman', serif;
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  #root {
+    background-color: #000000;
+    min-height: 100vh;
   }
   
   /* Academic content styling */
@@ -92,12 +107,7 @@
   .line-height-academic {
     line-height: 1.6;
   }
-  
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-  
+
   /* Custom link styles */
   .academic-link {
     color: var(--academic-blue);
@@ -114,6 +124,9 @@
     border-left: 2px solid var(--academic-border);
     padding-left: 1rem;
   }
+  :root {
+    --elegant-font: 'Great Vibes';
+  }
 }
 
 @layer utilities {
@@ -127,5 +140,16 @@
   
   .border-academic {
     border-color: var(--academic-border);
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
