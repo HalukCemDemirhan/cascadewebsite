@@ -107,7 +107,7 @@ export default function White() {
             </p>
 
             <h2 className="text-lg md:text-xl font-bold text-black mb-4">
-              Perception as Terrain
+              Perception Terrain
             </h2>
             <p className="text-lg line-height-academic text-black mb-6">
               Public perception fundamentally shapes outcomes across society, politics, and markets. Until we 
