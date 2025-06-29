@@ -110,7 +110,7 @@ export default function Investors() {
           {/* Back link */}
           <div className="text-center mt-8">
             <button 
-              onClick={() => setLocation('/')}
+              onClick={() => setLocation('/white')}
               className="text-gray-600 hover:text-black underline text-sm"
             >
               ← Back to main site
@@ -131,108 +131,11 @@ export default function Investors() {
           <h2 className="text-xl font-light text-gray-600">Investor Updates</h2>
         </div>
 
-        {/* Progress Updates */}
-        <div className="space-y-8">
-          <Card className="border-gray-200">
-            <CardHeader>
-              <CardTitle className="text-lg font-light flex justify-between items-center">
-                Q4 2024 Progress Report
-                <span className="text-sm text-gray-500">December 2024</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <p>
-                  <strong>Research Milestones:</strong> Completed initial modeling framework for perception-belief networks. 
-                  Successfully validated core algorithms with synthetic datasets showing 94% accuracy in influence propagation prediction.
-                </p>
-                <p>
-                  <strong>Technical Progress:</strong> Deployed scalable infrastructure supporting real-time analysis of up to 
-                  100K network nodes. Core platform architecture now supports multiple concurrent research streams.
-                </p>
-                <p>
-                  <strong>Team Growth:</strong> Expanded research team with two senior data scientists and one machine learning 
-                  engineer. Current team size: 8 researchers, 3 engineers.
-                </p>
-                <p>
-                  <strong>Next Quarter Focus:</strong> Launch pilot program with three academic institutions. Begin development 
-                  of enterprise-grade API for external research collaborations.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-gray-200">
-            <CardHeader>
-              <CardTitle className="text-lg font-light flex justify-between items-center">
-                Financial Summary
-                <span className="text-sm text-gray-500">As of Dec 31, 2024</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <p><strong>Current Runway:</strong> 18 months</p>
-                    <p><strong>Monthly Burn Rate:</strong> $85K</p>
-                    <p><strong>Revenue Pipeline:</strong> $2.3M projected</p>
-                  </div>
-                  <div>
-                    <p><strong>R&D Investment:</strong> 68% of budget</p>
-                    <p><strong>Personnel:</strong> 24% of budget</p>
-                    <p><strong>Infrastructure:</strong> 8% of budget</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-gray-200">
-            <CardHeader>
-              <CardTitle className="text-lg font-light flex justify-between items-center">
-                Market Opportunities
-                <span className="text-sm text-gray-500">Strategic Outlook</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <p>
-                  <strong>Academic Partnerships:</strong> In discussion with 12 universities for research collaborations. 
-                  Potential combined market value of $15M over three years.
-                </p>
-                <p>
-                  <strong>Commercial Applications:</strong> Three Fortune 500 companies have expressed interest in our 
-                  perception modeling capabilities for consumer behavior analysis.
-                </p>
-                <p>
-                  <strong>Government Sector:</strong> Preliminary discussions with policy research institutions regarding 
-                  social influence modeling for public health campaigns.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-gray-200">
-            <CardHeader>
-              <CardTitle className="text-lg font-light">Risk Assessment & Mitigation</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <p>
-                  <strong>Technical Risks:</strong> Scaling challenges addressed through distributed computing architecture. 
-                  Backup systems implemented for all critical research data.
-                </p>
-                <p>
-                  <strong>Market Risks:</strong> Diversified application portfolio reduces dependency on single market sector. 
-                  Strong academic partnerships provide stability during commercial development.
-                </p>
-                <p>
-                  <strong>Competitive Landscape:</strong> Our unique focus on perception-belief networks provides significant 
-                  differentiation from traditional network analysis tools.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+        {/* Empty content area */}
+        <div className="min-h-[400px] flex items-center justify-center">
+          <div className="text-center text-gray-500">
+            <p className="text-lg font-light">Updates will be posted here</p>
+          </div>
         </div>
 
         {/* Footer */}

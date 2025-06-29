@@ -100,3 +100,4 @@ Preferred communication style: Simple, everyday language.
 
 Changelog:
 - June 29, 2025. Initial setup
+- June 29, 2025. Added password-protected investor portal with PostgreSQL database, session management, and academic-style interface. Password: "PerceptionLabs2024!". Removed text content from updates page per user request.
