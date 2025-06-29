@@ -90,47 +90,50 @@ export default function Investors() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-white text-black flex items-center justify-center p-8">
-        <div className="w-full max-w-md">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h2 className="text-xl font-light text-gray-600">Investor Portal</h2>
-          </div>
+      <div className="min-h-screen bg-white text-black">
+        {/* Header at top */}
+        <div className="text-center pt-8 mb-8">
+          <h2 className="text-xl font-light text-gray-600">Investor Portal</h2>
+        </div>
 
-          {/* Password Form */}
-          <Card className="border-gray-200 mb-6">
-            <CardHeader>
-              <CardTitle className="text-center text-lg font-light">Access Required</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <Input
-                  type="password"
-                  placeholder="Enter password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="border-gray-300 focus:border-black"
-                  disabled={loginMutation.isPending}
-                />
-                <Button 
-                  type="submit" 
-                  className="w-full bg-black text-white hover:bg-gray-800"
-                  disabled={loginMutation.isPending}
-                >
-                  {loginMutation.isPending ? 'Verifying...' : 'Access Portal'}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+        {/* Centered login widget */}
+        <div className="flex items-center justify-center px-8" style={{ minHeight: 'calc(100vh - 120px)' }}>
+          <div className="w-full max-w-md">
+            {/* Password Form */}
+            <Card className="border-gray-200 mb-6">
+              <CardHeader>
+                <CardTitle className="text-center text-lg font-light">Access Required</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <Input
+                    type="password"
+                    placeholder="Enter password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="border-gray-300 focus:border-black"
+                    disabled={loginMutation.isPending}
+                  />
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-black text-white hover:bg-gray-800"
+                    disabled={loginMutation.isPending}
+                  >
+                    {loginMutation.isPending ? 'Verifying...' : 'Access Portal'}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
 
-          {/* Back link */}
-          <div className="text-center">
-            <button 
-              onClick={() => setLocation('/white')}
-              className="text-gray-600 hover:text-black underline text-sm"
-            >
-              ← Back to main site
-            </button>
+            {/* Back link */}
+            <div className="text-center">
+              <button 
+                onClick={() => setLocation('/white')}
+                className="text-gray-600 hover:text-black underline text-sm"
+              >
+                ← Back to main site
+              </button>
+            </div>
           </div>
         </div>
       </div>
