@@ -59,6 +59,7 @@ export default function Investors() {
       toast({
         title: "Access granted",
         description: "Welcome to the investor portal",
+        duration: 2000,
       });
     },
     onError: () => {
@@ -66,6 +67,7 @@ export default function Investors() {
         title: "Access denied",
         description: "Invalid password",
         variant: "destructive",
+        duration: 2000,
       });
     }
   });
@@ -168,6 +170,7 @@ export default function Investors() {
               toast({
                 title: "Logged out",
                 description: "You have been successfully logged out",
+                duration: 2000,
               });
             }}
             className="text-gray-600 hover:text-black underline text-sm mr-6"
