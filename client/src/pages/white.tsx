@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import logoPath from "@assets/logo-black_1751190410212.png";
 
 export default function White() {
   useEffect(() => {
@@ -27,10 +28,11 @@ export default function White() {
       <header className="w-full py-8 px-6 md:px-8">
         <div className="max-reading mx-auto">
           <div className="mb-2">
-            <h1 className="text-2xl md:text-3xl font-normal italic text-black">
-              d<sub>model</sub>
-            </h1>
-            <p className="text-sm md:text-base text-black mt-1">look inside the model</p>
+            <img 
+              src={logoPath} 
+              alt="Company Logo" 
+              className="h-12 md:h-16 w-auto"
+            />
           </div>
         </div>
       </header>
