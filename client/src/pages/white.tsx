@@ -131,7 +131,7 @@ export default function White() {
             <span className="text-academic-gray">|</span>
             <button 
               onClick={() => setLocation('/investors')} 
-              className="academic-link bg-transparent border-none p-0 text-inherit cursor-pointer"
+              className="academic-link bg-transparent border-none p-0 cursor-pointer"
             >
               investors
             </button>
