@@ -45,8 +45,8 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
         this.size = 2
         this.order = order
         this.velocity = {
-          x: (Math.random() - 0.5) * 2,
-          y: (Math.random() - 0.5) * 2
+          x: (Math.random() - 0.5) * 4,
+          y: (Math.random() - 0.5) * 4
         }
         this.influence = 0
         this.neighbors = []
@@ -63,9 +63,9 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
           this.neighbors.forEach(neighbor => {
             if (!neighbor.order) {
               const distance = Math.hypot(this.x - neighbor.x, this.y - neighbor.y)
-              const strength = Math.max(0, 1 - distance / 100)
-              chaosInfluence.x += (neighbor.velocity.x * strength)
-              chaosInfluence.y += (neighbor.velocity.y * strength)
+              const strength = Math.max(0, 1 - distance / 120)
+              chaosInfluence.x += (neighbor.velocity.x * strength * 1.5)
+              chaosInfluence.y += (neighbor.velocity.y * strength * 1.5)
               this.influence = Math.max(this.influence, strength)
             }
           })
@@ -75,13 +75,13 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
           this.y += dy * 0.05 * (1 - this.influence) + chaosInfluence.y * this.influence
 
           // 影响逐渐减弱
-          this.influence *= 0.99
+          this.influence *= 0.97
         } else {
           // 混沌运动
-          this.velocity.x += (Math.random() - 0.5) * 0.5
-          this.velocity.y += (Math.random() - 0.5) * 0.5
-          this.velocity.x *= 0.95
-          this.velocity.y *= 0.95
+          this.velocity.x += (Math.random() - 0.5) * 1.0
+          this.velocity.y += (Math.random() - 0.5) * 1.0
+          this.velocity.x *= 0.92
+          this.velocity.y *= 0.92
           this.x += this.velocity.x
           this.y += this.velocity.y
 
@@ -124,7 +124,7 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
         particle.neighbors = particles.filter(other => {
           if (other === particle) return false
           const distance = Math.hypot(particle.x - other.x, particle.y - other.y)
-          return distance < 100
+          return distance < 150
         })
       })
     }
@@ -133,6 +133,7 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
     let animationId: number
     
     function animate() {
+      if (!ctx) return
       ctx.clearRect(0, 0, size, size)
 
       // 更新邻居关系
@@ -148,9 +149,10 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
         // 绘制连接线
         particle.neighbors.forEach(neighbor => {
           const distance = Math.hypot(particle.x - neighbor.x, particle.y - neighbor.y)
-          if (distance < 50) {
-            const alpha = 0.2 * (1 - distance / 50)
+          if (distance < 80) {
+            const alpha = 0.4 * (1 - distance / 80)
             ctx.strokeStyle = `${particleColor}${Math.round(alpha * 255).toString(16).padStart(2, '0')}`
+            ctx.lineWidth = 1.5
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(neighbor.x, neighbor.y)
