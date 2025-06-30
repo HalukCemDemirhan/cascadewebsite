@@ -65,14 +65,14 @@ export default function White() {
   return (
     <div className="bg-white text-black min-h-screen">
       <SEO 
-        title="Research White Paper - Modeling Perception Systems | Perception Labs"
+        title="Modeling Perception Systems | Perception Labs"
         description="Exploring simulation-based approaches to understanding narrative battlefields and public discourse systems. Research on how ideas move through networks of belief, identity, and influence."
         keywords="perception, labs, lab, perception labs, narrative battlefields, perception systems modeling, simulation research, public discourse analysis, network dynamics, belief systems, information landscapes, systems thinking"
         canonical="https://perception-labs.com/white"
-        ogTitle="Research White Paper - Modeling Perception Systems"
+        ogTitle="Modeling Perception Systems"
         ogDescription="Exploring simulation-based approaches to understanding narrative battlefields and public discourse systems."
         ogUrl="https://perception-labs.com/white"
-        twitterTitle="Research White Paper - Modeling Perception Systems"
+        twitterTitle="Modeling Perception Systems"
         twitterDescription="Simulation-based approaches to understanding narrative battlefields and public discourse systems."
       />
       
