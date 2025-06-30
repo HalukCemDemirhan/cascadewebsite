@@ -46,6 +46,8 @@ export default function White() {
                 src={logoPath} 
                 alt="Company Logo" 
                 className="h-16 md:h-24 w-auto hover:opacity-80 transition-opacity duration-200"
+                loading="eager"
+                decoding="sync"
               />
             </div>
           </div>
