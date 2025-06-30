@@ -6,6 +6,10 @@ export default function White() {
   const [location, setLocation] = useLocation();
 
   useEffect(() => {
+    // Preload logo image for faster display
+    const img = new Image();
+    img.src = logoPath;
+
     // Smooth scrolling for anchor links
     const handleAnchorClick = (e: Event) => {
       const target = e.target as HTMLAnchorElement;
@@ -47,7 +51,8 @@ export default function White() {
                 alt="Company Logo" 
                 className="h-16 md:h-24 w-auto hover:opacity-80 transition-opacity duration-200"
                 loading="eager"
-                decoding="sync"
+                decoding="async"
+                fetchPriority="high"
               />
             </div>
           </div>
