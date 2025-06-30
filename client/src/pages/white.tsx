@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
+import { SEO } from "@/hooks/useSEO";
 import logoPath from "@assets/network-logo.png";
 
 export default function White() {
@@ -50,7 +51,7 @@ export default function White() {
           >
             <img 
               src={logoPath} 
-              alt="Company Logo" 
+              alt="Perception Labs - Modeling Perception Systems Logo" 
               className="h-16 md:h-24 w-auto hover:opacity-80 transition-opacity duration-200"
               loading="eager"
               decoding="async"
@@ -63,6 +64,18 @@ export default function White() {
 
   return (
     <div className="bg-white text-black min-h-screen">
+      <SEO 
+        title="Research White Paper - Modeling Perception Systems | Perception Labs"
+        description="Exploring simulation-based approaches to understanding narrative battlefields and public discourse systems. Research on how ideas move through networks of belief, identity, and influence."
+        keywords="narrative battlefields, perception systems modeling, simulation research, public discourse analysis, network dynamics, belief systems, information landscapes, systems thinking"
+        canonical="https://perception-labs.com/white"
+        ogTitle="Research White Paper - Modeling Perception Systems"
+        ogDescription="Exploring simulation-based approaches to understanding narrative battlefields and public discourse systems."
+        ogUrl="https://perception-labs.com/white"
+        twitterTitle="Research White Paper - Modeling Perception Systems"
+        twitterDescription="Simulation-based approaches to understanding narrative battlefields and public discourse systems."
+      />
+      
       {/* Header */}
       <header className="w-full pt-12 pb-8 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
@@ -73,7 +86,7 @@ export default function White() {
             >
               <img 
                 src={logoPath} 
-                alt="Company Logo" 
+                alt="Perception Labs - Modeling Perception Systems Logo" 
                 className="h-16 md:h-24 w-auto hover:opacity-80 transition-opacity duration-200"
                 loading="eager"
                 decoding="async"
@@ -93,9 +106,13 @@ export default function White() {
               Modelling Perception Systems
             </h1>
             
-            <p className="text-lg md:text-xl line-height-academic text-gray-600 mb-8 italic">
+            <p className="text-lg md:text-xl line-height-academic text-gray-600 mb-4 italic">
               Outcomes are no longer driven by intent, but by how ideas move through networks 
               of belief, identity, and influence.
+            </p>
+            
+            <p className="text-sm text-gray-500 mb-8">
+              — Perception Labs Research
             </p>
           </section>
 
@@ -134,7 +151,7 @@ export default function White() {
             <p className="text-lg line-height-academic text-black mb-8">
               This is not about prediction in the statistical sense. It is about simulation in the systems sense: 
               understanding the structure well enough to intervene thoughtfully and to make sense of a world 
-              that constantly reshapes itself.
+              that constantly reshapes itself. Through advanced modeling techniques, we can map these complex dynamics.
             </p>
 
             <h2 className="text-lg md:text-xl font-bold text-black mb-4">
@@ -155,6 +172,11 @@ export default function White() {
       {/* Footer */}
       <footer className="w-full pt-4 pb-8 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
+          <div className="mb-4 text-center">
+            <p className="text-xs text-gray-400">
+              Research conducted at Perception Labs
+            </p>
+          </div>
           <div className="flex flex-wrap gap-4 text-sm">
             <a href="#" className="academic-link">adam</a>
             <span className="text-academic-gray">|</span>

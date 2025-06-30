@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
+import { SEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -91,9 +92,22 @@ export default function Investors() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-white text-black">
+        <SEO 
+          title="Investor Portal - Perception Labs"
+          description="Access the Perception Labs investor portal for updates, reports, and exclusive information about our perception systems research and development."
+          keywords="investor portal, Perception Labs investors, startup investment, research funding, perception systems investment"
+          canonical="https://perception-labs.com/investors"
+          ogTitle="Investor Portal - Perception Labs"
+          ogDescription="Access the Perception Labs investor portal for exclusive updates and information."
+          ogUrl="https://perception-labs.com/investors"
+          twitterTitle="Investor Portal - Perception Labs"
+          twitterDescription="Access the Perception Labs investor portal for exclusive updates and information."
+        />
+        
         {/* Header at top */}
         <div className="text-center pt-8 mb-8">
           <h2 className="text-xl font-light text-gray-600">Investor Portal</h2>
+          <p className="text-sm text-gray-500 mt-2">Perception Labs - Modeling Research</p>
         </div>
 
         {/* Centered login widget */}
@@ -142,10 +156,23 @@ export default function Investors() {
 
   return (
     <div className="min-h-screen bg-white text-black p-8">
+      <SEO 
+        title="Investor Updates - Perception Labs"
+        description="Exclusive investor updates and reports from Perception Labs. Access development progress, research milestones, and strategic information."
+        keywords="investor updates, Perception Labs progress, research milestones, startup reports, perception systems development"
+        canonical="https://perception-labs.com/investors"
+        ogTitle="Investor Updates - Perception Labs"
+        ogDescription="Exclusive investor updates and reports from Perception Labs."
+        ogUrl="https://perception-labs.com/investors"
+        twitterTitle="Investor Updates - Perception Labs"
+        twitterDescription="Exclusive investor updates and reports from Perception Labs."
+      />
+      
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-xl font-light text-gray-600">Investor Updates</h2>
+          <p className="text-sm text-gray-500 mt-2">Perception Labs - Modeling Research</p>
         </div>
 
         {/* Empty content area */}

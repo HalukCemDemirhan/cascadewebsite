@@ -1,6 +1,7 @@
 import { Entropy } from "@/components/ui/entropy";
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
+import { SEO } from "@/hooks/useSEO";
 
 export default function Home() {
   const [clickedLetters, setClickedLetters] = useState<Set<string>>(new Set());
@@ -105,6 +106,18 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center bg-black text-white min-h-screen w-full p-8">
+      <SEO 
+        title="Perception Labs - Modeling Perception Systems"
+        description="Perception Labs - Simulation based approaches to understanding narrative battlefields and public discourse systems. Ask for a demo to try."
+        keywords="perception systems, narrative modeling, network analysis, public discourse, belief networks, influence mapping, systems simulation, information landscapes, collective perception"
+        canonical="https://perception-labs.com/"
+        ogTitle="Perception Labs - Modeling Perception Systems"
+        ogDescription="Simulation based approaches to understanding narrative battlefields and public discourse systems. Ask for a demo to try."
+        ogUrl="https://perception-labs.com/"
+        twitterTitle="Perception Labs - Modeling Perception Systems"
+        twitterDescription="Simulation based approaches to understanding narrative battlefields and public discourse systems. Ask for a demo to try."
+      />
+      
       <div className="flex flex-col items-center">
         {/* Entropy Animation in a contained box with transparent edges */}
         <div className="hidden md:block">
@@ -116,6 +129,7 @@ export default function Home() {
 
         {/* Descriptive Text */}
         <div className="mt-8 text-center max-w-2xl relative">
+          <h1 className="sr-only">Perception Labs - Modeling Perception Systems</h1>
           <p
             className="text-gray-300 text-lg md:text-2xl leading-relaxed italic tracking-wide"
             style={{ wordSpacing: "0.3em" }}
@@ -165,6 +179,13 @@ export default function Home() {
               {hints[hintIndex]}
             </p>
           )}
+        </div>
+        
+        {/* Subtle tagline with keywords */}
+        <div className="mt-12 text-center">
+          <p className="text-gray-600 text-sm md:text-base">
+            Research Labs • Perception Modeling • Systems Analysis
+          </p>
         </div>
       </div>
     </div>
