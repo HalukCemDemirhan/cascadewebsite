@@ -42,21 +42,7 @@ export default function White() {
 
   if (!logoLoaded) {
     return (
-      <div className="bg-white text-black min-h-screen flex items-center justify-center">
-        <div className="max-w-2xl mx-auto px-8 md:px-16">
-          <div 
-            onClick={handleLogoClick}
-            className="cursor-pointer w-fit"
-          >
-            <img 
-              src={logoPath} 
-              alt="Company Logo" 
-              className="h-16 md:h-24 w-auto hover:opacity-80 transition-opacity duration-200"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-        </div>
+      <div className="bg-black min-h-screen">
       </div>
     );
   }
