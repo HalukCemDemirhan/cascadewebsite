@@ -1,13 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import logoPath from "@assets/network-logo.png";
 
 export default function White() {
   const [location, setLocation] = useLocation();
+  const [logoLoaded, setLogoLoaded] = useState(false);
 
   useEffect(() => {
-    // Image preloading - start downloading immediately
+    // Image preloading - start downloading immediately and track loading
     const img = new Image();
+    img.onload = () => {
+      setLogoLoaded(true);
+    };
     img.src = logoPath;
 
     // Smooth scrolling for anchor links
@@ -36,6 +40,27 @@ export default function White() {
     setLocation('/');
   };
 
+  if (!logoLoaded) {
+    return (
+      <div className="bg-white text-black min-h-screen flex items-center justify-center">
+        <div className="max-w-2xl mx-auto px-8 md:px-16">
+          <div 
+            onClick={handleLogoClick}
+            className="cursor-pointer w-fit"
+          >
+            <img 
+              src={logoPath} 
+              alt="Company Logo" 
+              className="h-16 md:h-24 w-auto hover:opacity-80 transition-opacity duration-200"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white text-black min-h-screen">
       {/* Header */}
@@ -52,7 +77,6 @@ export default function White() {
                 className="h-16 md:h-24 w-auto hover:opacity-80 transition-opacity duration-200"
                 loading="eager"
                 decoding="async"
-                fetchpriority="high"
               />
             </div>
           </div>
