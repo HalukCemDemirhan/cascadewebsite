@@ -108,14 +108,14 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center bg-black text-white min-h-screen w-full p-8">
       <SEO 
         title="Perception Labs - Modeling Perception Systems"
-        description="Perception Labs - Simulation based approaches to understanding narrative battlefields and public discourse systems. Ask for a demo to try."
-        keywords="perception systems, narrative modeling, network analysis, public discourse, belief networks, influence mapping, systems simulation, information landscapes, collective perception"
+        description="Perception Labs - Simulation lab specializing in understanding narrative battlefields and public perception systems. Ask for a demo to try."
+        keywords="perception, labs, lab, perception labs, perception systems, narrative modeling, network analysis, public discourse, belief networks, influence mapping, systems simulation, information landscapes, collective perception"
         canonical="https://perception-labs.com/"
         ogTitle="Perception Labs - Modeling Perception Systems"
-        ogDescription="Simulation based approaches to understanding narrative battlefields and public discourse systems. Ask for a demo to try."
+        ogDescription="Simulation lab specializing in understanding narrative battlefields and public perception systems. Ask for a demo to try."
         ogUrl="https://perception-labs.com/"
         twitterTitle="Perception Labs - Modeling Perception Systems"
-        twitterDescription="Simulation based approaches to understanding narrative battlefields and public discourse systems. Ask for a demo to try."
+        twitterDescription="Simulation lab specializing in understanding narrative battlefields and public perception systems. Ask for a demo to try."
       />
       
       <div className="flex flex-col items-center">
@@ -179,13 +179,6 @@ export default function Home() {
               {hints[hintIndex]}
             </p>
           )}
-        </div>
-        
-        {/* Subtle tagline with keywords */}
-        <div className="mt-12 text-center">
-          <p className="text-gray-600 text-sm md:text-base">
-            Research Labs • Perception Modeling • Systems Analysis
-          </p>
         </div>
       </div>
     </div>

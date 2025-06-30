@@ -67,7 +67,7 @@ export default function White() {
       <SEO 
         title="Research White Paper - Modeling Perception Systems | Perception Labs"
         description="Exploring simulation-based approaches to understanding narrative battlefields and public discourse systems. Research on how ideas move through networks of belief, identity, and influence."
-        keywords="narrative battlefields, perception systems modeling, simulation research, public discourse analysis, network dynamics, belief systems, information landscapes, systems thinking"
+        keywords="perception, labs, lab, perception labs, narrative battlefields, perception systems modeling, simulation research, public discourse analysis, network dynamics, belief systems, information landscapes, systems thinking"
         canonical="https://perception-labs.com/white"
         ogTitle="Research White Paper - Modeling Perception Systems"
         ogDescription="Exploring simulation-based approaches to understanding narrative battlefields and public discourse systems."
@@ -106,13 +106,9 @@ export default function White() {
               Modelling Perception Systems
             </h1>
             
-            <p className="text-lg md:text-xl line-height-academic text-gray-600 mb-4 italic">
+            <p className="text-lg md:text-xl line-height-academic text-gray-600 mb-8 italic">
               Outcomes are no longer driven by intent, but by how ideas move through networks 
               of belief, identity, and influence.
-            </p>
-            
-            <p className="text-sm text-gray-500 mb-8">
-              — Perception Labs Research
             </p>
           </section>
 
@@ -177,7 +173,7 @@ export default function White() {
               Research conducted at Perception Labs
             </p>
           </div>
-          <div className="flex flex-wrap gap-4 text-sm">
+          <div className="flex flex-wrap justify-center gap-4 text-sm">
             <a href="#" className="academic-link">adam</a>
             <span className="text-academic-gray">|</span>
             <a href="#" className="academic-link">amgad</a>

@@ -95,7 +95,7 @@ export default function Investors() {
         <SEO 
           title="Investor Portal - Perception Labs"
           description="Access the Perception Labs investor portal for updates, reports, and exclusive information about our perception systems research and development."
-          keywords="investor portal, Perception Labs investors, startup investment, research funding, perception systems investment"
+          keywords="perception, labs, lab, perception labs, investor portal, Perception Labs investors, startup investment, research funding, perception systems investment"
           canonical="https://perception-labs.com/investors"
           ogTitle="Investor Portal - Perception Labs"
           ogDescription="Access the Perception Labs investor portal for exclusive updates and information."
@@ -159,7 +159,7 @@ export default function Investors() {
       <SEO 
         title="Investor Updates - Perception Labs"
         description="Exclusive investor updates and reports from Perception Labs. Access development progress, research milestones, and strategic information."
-        keywords="investor updates, Perception Labs progress, research milestones, startup reports, perception systems development"
+        keywords="perception, labs, lab, perception labs, investor updates, Perception Labs progress, research milestones, startup reports, perception systems development"
         canonical="https://perception-labs.com/investors"
         ogTitle="Investor Updates - Perception Labs"
         ogDescription="Exclusive investor updates and reports from Perception Labs."
