@@ -52,7 +52,7 @@ export default function White() {
                 className="h-16 md:h-24 w-auto hover:opacity-80 transition-opacity duration-200"
                 loading="eager"
                 decoding="async"
-                fetchPriority="high"
+                fetchpriority="high"
               />
             </div>
           </div>
