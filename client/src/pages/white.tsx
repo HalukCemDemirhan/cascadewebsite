@@ -168,12 +168,12 @@ export default function White() {
       {/* Footer */}
       <footer className="w-full pt-4 pb-8 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
-          <div className="mb-4 text-center">
+          <div className="mb-4">
             <p className="text-xs text-gray-400">
               Research conducted at Perception Labs
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <div className="flex flex-wrap gap-4 text-sm">
             <a href="#" className="academic-link">adam</a>
             <span className="text-academic-gray">|</span>
             <a href="#" className="academic-link">amgad</a>

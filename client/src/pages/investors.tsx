@@ -106,7 +106,7 @@ export default function Investors() {
         
         {/* Header at top */}
         <div className="text-center pt-8 mb-8">
-          <h2 className="text-xl font-light text-gray-600">Investor Portal</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-black">Investor Portal</h2>
           <p className="text-sm text-gray-500 mt-2">Perception Labs - Modeling Research</p>
         </div>
 
@@ -171,7 +171,7 @@ export default function Investors() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-xl font-light text-gray-600">Investor Updates</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-black">Investor Updates</h2>
           <p className="text-sm text-gray-500 mt-2">Perception Labs - Modeling Research</p>
         </div>
 
