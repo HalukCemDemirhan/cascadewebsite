@@ -174,7 +174,7 @@ export default function White() {
             </p>
           </div>
           <div className="flex flex-wrap gap-4 text-sm">
-            <a href="#" className="academic-link">adam</a>
+            <a href="https://sonofadam.life/" className="academic-link" target="_blank" rel="noopener noreferrer">adam</a>
             <span className="text-academic-gray">|</span>
             <a href="#" className="academic-link">amgad</a>
             <span className="text-academic-gray">|</span>
