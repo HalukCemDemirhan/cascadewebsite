@@ -107,7 +107,6 @@ export default function Investors() {
         {/* Header at top */}
         <div className="text-center pt-8 mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-black">Investor Portal</h2>
-          <p className="text-sm text-gray-500 mt-2">Perception Labs - Modeling Research</p>
         </div>
 
         {/* Centered login widget */}
