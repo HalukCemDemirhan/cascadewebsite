@@ -30,7 +30,7 @@ export default function Home() {
     // Show first hint after 6 seconds
     const firstHintTimer = setTimeout(() => {
       setShowHint(true);
-    }, 6000);
+    }, 5000);
 
     // Start rotating hints after 14 seconds (6 + 8)
     const rotationTimer = setTimeout(() => {
@@ -46,7 +46,7 @@ export default function Home() {
       }, 6800); // Rotate every 8 seconds
 
       return () => clearInterval(interval);
-    }, 14000);
+    }, 6000);
 
     return () => {
       clearTimeout(firstHintTimer);
@@ -106,7 +106,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center bg-black text-white min-h-screen w-full p-8">
-      <SEO 
+      <SEO
         title="Perception Labs - Modeling Perception Systems"
         description="Perception Labs - Simulation lab specializing in understanding narrative battlefields and public perception systems. Ask for a demo to try."
         keywords="perception, labs, lab, perception labs, perception systems, narrative modeling, network analysis, public discourse, belief networks, influence mapping, systems simulation, information landscapes, collective perception"
@@ -117,7 +117,7 @@ export default function Home() {
         twitterTitle="Perception Labs - Modeling Perception Systems"
         twitterDescription="Simulation lab specializing in understanding narrative battlefields and public perception systems. Ask for a demo to try."
       />
-      
+
       <div className="flex flex-col items-center">
         {/* Entropy Animation in a contained box with transparent edges */}
         <div className="hidden md:block">
@@ -129,7 +129,9 @@ export default function Home() {
 
         {/* Descriptive Text */}
         <div className="mt-8 text-center max-w-2xl relative">
-          <h1 className="sr-only">Perception Labs - Modeling Perception Systems</h1>
+          <h1 className="sr-only">
+            Perception Labs - Modeling Perception Systems
+          </h1>
           <p
             className="text-gray-300 text-lg md:text-2xl leading-relaxed italic tracking-wide"
             style={{ wordSpacing: "0.3em" }}
