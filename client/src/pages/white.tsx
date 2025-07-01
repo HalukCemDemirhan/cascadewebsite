@@ -176,7 +176,7 @@ export default function White() {
           <div className="flex flex-wrap gap-4 text-sm">
             <a href="https://sonofadam.life/" className="academic-link" target="_blank" rel="noopener noreferrer">adam</a>
             <span className="text-academic-gray">|</span>
-            <a href="#" className="academic-link">amgad</a>
+            <a href="https://alzamkan.com/" className="academic-link" target="_blank" rel="noopener noreferrer">amgad</a>
             <span className="text-academic-gray">|</span>
             <button 
               onClick={() => setLocation('/investors')} 
