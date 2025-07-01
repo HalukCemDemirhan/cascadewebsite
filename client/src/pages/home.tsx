@@ -27,12 +27,12 @@ export default function Home() {
   useEffect(() => {
     if (allLettersClicked) return; // Don't show hints if puzzle is solved
 
-    // Show first hint after 12 seconds
+    // Show first hint after 6 seconds
     const firstHintTimer = setTimeout(() => {
       setShowHint(true);
-    }, 10000);
+    }, 6000);
 
-    // Start rotating hints after 20 seconds (12 + 8)
+    // Start rotating hints after 14 seconds (6 + 8)
     const rotationTimer = setTimeout(() => {
       const interval = setInterval(() => {
         // Fade out current hint
@@ -46,7 +46,7 @@ export default function Home() {
       }, 6800); // Rotate every 8 seconds
 
       return () => clearInterval(interval);
-    }, 10000);
+    }, 14000);
 
     return () => {
       clearTimeout(firstHintTimer);
