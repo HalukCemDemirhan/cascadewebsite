@@ -189,7 +189,7 @@ export default function Home() {
           {/* Hint Text */}
           {showHint && !allLettersClicked && (
             <p
-              className={`text-gray-500 text-base text-center absolute top-full inset-x-0 mx-auto mt-4 transition-opacity duration-300 w-full ${hintFading ? "opacity-0" : "opacity-100"}`}
+              className={`text-gray-500 text-lg text-center absolute top-full inset-x-0 mx-auto mt-4 transition-opacity duration-300 w-full ${hintFading ? "opacity-0" : "opacity-100"}`}
             >
               {hints[hintIndex]}
             </p>
