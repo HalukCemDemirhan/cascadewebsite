@@ -23,6 +23,19 @@ export default function Home() {
     clickedLetters.has(letter),
   );
 
+  // Handle keyboard input
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      const letter = e.key.toUpperCase();
+      if (allLetters.includes(letter)) {
+        handleLetterClick(letter);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, []);
+
   // Handle hint timing
   useEffect(() => {
     if (allLettersClicked) return; // Don't show hints if puzzle is solved
@@ -30,7 +43,7 @@ export default function Home() {
     // Show first hint after 6 seconds
     const firstHintTimer = setTimeout(() => {
       setShowHint(true);
-    }, 5000);
+    }, 6000);
 
     // Start rotating hints after 14 seconds (6 + 8)
     const rotationTimer = setTimeout(() => {
@@ -46,7 +59,7 @@ export default function Home() {
       }, 6800); // Rotate every 8 seconds
 
       return () => clearInterval(interval);
-    }, 6000);
+    }, 14000);
 
     return () => {
       clearTimeout(firstHintTimer);
