@@ -40,12 +40,12 @@ export default function Home() {
   useEffect(() => {
     if (allLettersClicked) return; // Don't show hints if puzzle is solved
 
-    // Show first hint after 6 seconds
+    // Show first hint after 1 second
     const firstHintTimer = setTimeout(() => {
       setShowHint(true);
-    }, 6000);
+    }, 1000);
 
-    // Start rotating hints after 14 seconds (6 + 8)
+    // Start rotating hints after 9 seconds (1 + 8)
     const rotationTimer = setTimeout(() => {
       const interval = setInterval(() => {
         // Fade out current hint
@@ -59,7 +59,7 @@ export default function Home() {
       }, 6800); // Rotate every 8 seconds
 
       return () => clearInterval(interval);
-    }, 14000);
+    }, 9000);
 
     return () => {
       clearTimeout(firstHintTimer);
@@ -189,7 +189,7 @@ export default function Home() {
           {/* Hint Text */}
           {showHint && !allLettersClicked && (
             <p
-              className={`text-gray-500 text-sm text-center absolute top-full inset-x-0 mx-auto mt-4 transition-opacity duration-300 w-full ${hintFading ? "opacity-0" : "opacity-100"}`}
+              className={`text-gray-500 text-base text-center absolute top-full inset-x-0 mx-auto mt-4 transition-opacity duration-300 w-full ${hintFading ? "opacity-0" : "opacity-100"}`}
             >
               {hints[hintIndex]}
             </p>
