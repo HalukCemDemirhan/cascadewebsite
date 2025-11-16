@@ -46,13 +46,10 @@ export default function White() {
       {/* Header */}
       <header className="w-full pt-12 pb-8 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
-          <div className="mb-2 flex items-center gap-6">
+          <div className="mb-2 flex justify-center">
             <h1 className="text-3xl md:text-4xl font-light tracking-wide text-black">
               cascade
             </h1>
-            <div className="hidden md:block">
-              <Entropy size={180} />
-            </div>
           </div>
         </div>
       </header>
@@ -126,6 +123,9 @@ export default function White() {
       {/* Footer */}
       <footer className="w-full pt-4 pb-8 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
+          <div className="mb-8 flex justify-center">
+            <Entropy size={180} />
+          </div>
           <div className="mb-4">
             <p className="text-xs text-gray-400">
               © 2025 Cascade intelligence Corporation
