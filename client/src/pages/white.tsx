@@ -32,15 +32,15 @@ export default function White() {
   return (
     <div className="bg-white text-black min-h-screen">
       <SEO 
-        title="Making AI Safe | Cascade"
-        description="Systems capable of unprecedented autonomy & intelligence now exist, yet they remain constrained by our inability to verify their safety & reliability. Building the infrastructure for agentic security through transparency."
-        keywords="cascade, AI safety, agentic systems, AI security, transparency, artificial intelligence, machine learning security, AI reliability, AI accountability, stochastic systems, AI infrastructure"
+        title="cascade - making AI agents safe"
+        description="cascade - making AI agents safe"
+        keywords="cascade"
         canonical="https://cascade.ai/"
-        ogTitle="Making AI Safe | Cascade"
-        ogDescription="Building the infrastructure for agentic security through transparency. Systems capable of unprecedented autonomy & intelligence now exist, yet they remain constrained by our inability to verify their safety & reliability."
+        ogTitle="cascade - making AI agents safe"
+        ogDescription="cascade - making AI agents safe"
         ogUrl="https://cascade.ai/"
-        twitterTitle="Making AI Safe | Cascade"
-        twitterDescription="Building the infrastructure for agentic security through transparency."
+        twitterTitle="cascade - making AI agents safe"
+        twitterDescription="cascade - making AI agents safe"
       />
       
       {/* Header */}
