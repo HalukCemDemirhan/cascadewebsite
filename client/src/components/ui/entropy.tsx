@@ -23,8 +23,8 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
     canvas.style.height = `${size}px`
     ctx.scale(dpr, dpr)
 
-    // 使用黑色主题
-    const particleColor = '#ffffff'
+    // 使用白色主题
+    const particleColor = '#000000'
 
     class Particle {
       x: number
@@ -45,8 +45,8 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
         this.size = 2
         this.order = order
         this.velocity = {
-          x: (Math.random() - 0.5) * 2,
-          y: (Math.random() - 0.5) * 2
+          x: (Math.random() - 0.5) * 0.8,
+          y: (Math.random() - 0.5) * 0.8
         }
         this.influence = 0
         this.neighbors = []
@@ -78,10 +78,10 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
           this.influence *= 0.99
         } else {
           // 混沌运动
-          this.velocity.x += (Math.random() - 0.5) * 0.5
-          this.velocity.y += (Math.random() - 0.5) * 0.5
-          this.velocity.x *= 0.95
-          this.velocity.y *= 0.95
+          this.velocity.x += (Math.random() - 0.5) * 0.2
+          this.velocity.y += (Math.random() - 0.5) * 0.2
+          this.velocity.x *= 0.97
+          this.velocity.y *= 0.97
           this.x += this.velocity.x
           this.y += this.velocity.y
 
@@ -95,8 +95,8 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
 
       draw(ctx: CanvasRenderingContext2D) {
         const alpha = this.order ?
-          0.8 - this.influence * 0.5 :
-          0.8
+          0.5 - this.influence * 0.3 :
+          0.5
         ctx.fillStyle = `${particleColor}${Math.round(alpha * 255).toString(16).padStart(2, '0')}`
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
@@ -149,7 +149,7 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
         particle.neighbors.forEach(neighbor => {
           const distance = Math.hypot(particle.x - neighbor.x, particle.y - neighbor.y)
           if (distance < 50) {
-            const alpha = 0.2 * (1 - distance / 50)
+            const alpha = 0.1 * (1 - distance / 50)
             ctx.strokeStyle = `${particleColor}${Math.round(alpha * 255).toString(16).padStart(2, '0')}`
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
@@ -168,7 +168,7 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
       ctx.stroke()
 
       ctx.font = '12px monospace'
-      ctx.fillStyle = '#ffffff'
+      ctx.fillStyle = '#000000'
       ctx.textAlign = 'center'
 
       time++
@@ -185,7 +185,7 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
   }, [size])
 
   return (
-    <div className={`relative bg-black ${className}`} style={{ width: size, height: size }}>
+    <div className={`relative bg-white ${className}`} style={{ width: size, height: size }}>
       <canvas
         ref={canvasRef}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
