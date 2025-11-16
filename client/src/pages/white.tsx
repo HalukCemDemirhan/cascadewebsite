@@ -47,7 +47,7 @@ export default function White() {
       <header className="w-full pt-12 pb-8 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
           <div className="mb-2 flex justify-center">
-            <h1 className="text-3xl md:text-4xl font-light tracking-wide text-black">
+            <h1 className="text-5xl md:text-6xl font-light tracking-wide text-black" style={{ fontFamily: 'Times New Roman, serif' }}>
               cascade
             </h1>
           </div>
@@ -68,6 +68,11 @@ export default function White() {
               Systems capable of unprecedented autonomy & intelligence now exist, yet they remain constrained by our inability to verify their safety & reliability.
             </p>
           </section>
+
+          {/* Animation */}
+          <div className="mb-12 flex justify-center">
+            <Entropy size={180} />
+          </div>
 
           {/* Research Areas */}
           <section className="mb-4">
@@ -123,9 +128,6 @@ export default function White() {
       {/* Footer */}
       <footer className="w-full pt-4 pb-8 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
-          <div className="mb-8 flex justify-center">
-            <Entropy size={180} />
-          </div>
           <div className="mb-4">
             <p className="text-xs text-gray-400">
               © 2025 Cascade intelligence Corporation
