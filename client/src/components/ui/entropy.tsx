@@ -106,7 +106,7 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
 
     // 创建粒子网格
     const particles: Particle[] = []
-    const gridSize = 25
+    const gridSize = 15
     const spacing = size / gridSize
 
     for (let i = 0; i < gridSize; i++) {

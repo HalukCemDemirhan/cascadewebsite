@@ -94,7 +94,7 @@ export default function White() {
               />
             </div>
             <div className="hidden md:block">
-              <Entropy size={120} />
+              <Entropy size={180} />
             </div>
           </div>
         </div>
