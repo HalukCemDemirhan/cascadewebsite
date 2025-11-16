@@ -23,8 +23,8 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
     canvas.style.height = `${size}px`
     ctx.scale(dpr, dpr)
 
-    // 使用白色主题
-    const particleColor = '#000000'
+    // 使用off-white主题
+    const particleColor = '#f5f5f0'
 
     class Particle {
       x: number
@@ -45,8 +45,8 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
         this.size = 2
         this.order = order
         this.velocity = {
-          x: (Math.random() - 0.5) * 0.8,
-          y: (Math.random() - 0.5) * 0.8
+          x: (Math.random() - 0.5) * 0.4,
+          y: (Math.random() - 0.5) * 0.4
         }
         this.influence = 0
         this.neighbors = []
@@ -78,10 +78,10 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
           this.influence *= 0.99
         } else {
           // 混沌运动
-          this.velocity.x += (Math.random() - 0.5) * 0.2
-          this.velocity.y += (Math.random() - 0.5) * 0.2
-          this.velocity.x *= 0.97
-          this.velocity.y *= 0.97
+          this.velocity.x += (Math.random() - 0.5) * 0.1
+          this.velocity.y += (Math.random() - 0.5) * 0.1
+          this.velocity.x *= 0.98
+          this.velocity.y *= 0.98
           this.x += this.velocity.x
           this.y += this.velocity.y
 
@@ -168,7 +168,7 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
       ctx.stroke()
 
       ctx.font = '12px monospace'
-      ctx.fillStyle = '#000000'
+      ctx.fillStyle = '#f5f5f0'
       ctx.textAlign = 'center'
 
       time++
@@ -185,7 +185,7 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
   }, [size])
 
   return (
-    <div className={`relative bg-white ${className}`} style={{ width: size, height: size }}>
+    <div className={`relative ${className}`} style={{ width: size, height: size, backgroundColor: 'transparent' }}>
       <canvas
         ref={canvasRef}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
