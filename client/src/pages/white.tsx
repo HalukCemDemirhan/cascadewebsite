@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { SEO } from "@/hooks/useSEO";
-import logoPath from "@assets/network-logo.png";
 import { Entropy } from "@/components/ui/entropy";
 
 export default function White() {
   const [location, setLocation] = useLocation();
-  const [logoLoaded, setLogoLoaded] = useState(false);
 
   useEffect(() => {
-    // Image preloading - start downloading immediately and track loading
-    const img = new Image();
-    img.onload = () => {
-      setLogoLoaded(true);
-    };
-    img.src = logoPath;
-
     // Smooth scrolling for anchor links
     const handleAnchorClick = (e: Event) => {
       const target = e.target as HTMLAnchorElement;
@@ -38,31 +29,6 @@ export default function White() {
     return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
 
-  const handleLogoClick = () => {
-    setLocation('/');
-  };
-
-  if (!logoLoaded) {
-    return (
-      <div className="bg-white text-black min-h-screen flex items-center justify-center">
-        <div className="max-w-2xl mx-auto px-8 md:px-16">
-          <div 
-            onClick={handleLogoClick}
-            className="cursor-pointer w-fit"
-          >
-            <img 
-              src={logoPath} 
-              alt="Perception Labs - Modeling Perception Systems Logo" 
-              className="h-16 md:h-24 w-auto hover:opacity-80 transition-opacity duration-200"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="bg-white text-black min-h-screen">
       <SEO 
@@ -81,18 +47,9 @@ export default function White() {
       <header className="w-full pt-12 pb-8 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
           <div className="mb-2 flex items-center gap-6">
-            <div 
-              onClick={handleLogoClick}
-              className="cursor-pointer w-fit"
-            >
-              <img 
-                src={logoPath} 
-                alt="Perception Labs - Modeling Perception Systems Logo" 
-                className="h-16 md:h-24 w-auto hover:opacity-80 transition-opacity duration-200"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
+            <h1 className="text-3xl md:text-4xl font-light tracking-wide text-black">
+              cascade
+            </h1>
             <div className="hidden md:block">
               <Entropy size={180} />
             </div>
@@ -174,20 +131,8 @@ export default function White() {
         <div className="max-w-2xl mx-auto">
           <div className="mb-4">
             <p className="text-xs text-gray-400">
-              Research conducted at Perception Labs
+              © 2025 Cascade intelligence Corporation
             </p>
-          </div>
-          <div className="flex flex-wrap gap-4 text-sm">
-            <a href="https://sonofadam.life/" className="academic-link" target="_blank" rel="noopener noreferrer">adam</a>
-            <span className="text-academic-gray">|</span>
-            <a href="https://alzamkan.com/" className="academic-link" target="_blank" rel="noopener noreferrer">amgad</a>
-            <span className="text-academic-gray">|</span>
-            <button 
-              onClick={() => setLocation('/investors')} 
-              className="academic-link bg-transparent border-none p-0 cursor-pointer"
-            >
-              investors
-            </button>
           </div>
         </div>
       </footer>
