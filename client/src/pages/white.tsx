@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { SEO } from "@/hooks/useSEO";
 import logoPath from "@assets/network-logo.png";
+import { Entropy } from "@/components/ui/entropy";
 
 export default function White() {
   const [location, setLocation] = useLocation();
@@ -79,7 +80,7 @@ export default function White() {
       {/* Header */}
       <header className="w-full pt-12 pb-8 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
-          <div className="mb-2">
+          <div className="mb-2 flex items-center gap-6">
             <div 
               onClick={handleLogoClick}
               className="cursor-pointer w-fit"
@@ -91,6 +92,9 @@ export default function White() {
                 loading="eager"
                 decoding="async"
               />
+            </div>
+            <div className="hidden md:block">
+              <Entropy size={120} />
             </div>
           </div>
         </div>
