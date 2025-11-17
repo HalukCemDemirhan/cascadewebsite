@@ -46,14 +46,14 @@ body {
 .tagline {
   margin: 0.75rem auto 0.5rem;
   font-weight: 400;
-  font-size: 1.45rem;
+  font-size: 1.6rem;
   color: var(--muted);
   letter-spacing: 0.08rem;
   font-style: italic;
 }
 
 .lede {
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-style: italic;
   color: var(--muted);
   margin: 0 auto 2rem;
@@ -68,7 +68,7 @@ body {
 }
 
 .hero canvas {
-  width: min(300px, 60vw);
+  width: min(260px, 55vw);
   height: auto;
   display: block;
   filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.45));
@@ -84,13 +84,14 @@ body {
 
 .section h2 {
   margin: 0 0 0.75rem;
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   letter-spacing: 0.05em;
 }
 
 .section p {
   margin: 0 0 0.95rem;
   text-align: justify;
+  font-size: 1.15rem;
 }
 
 .page__footer {
@@ -110,7 +111,7 @@ body {
   }
 
   .hero canvas {
-    width: min(240px, 70vw);
+    width: min(220px, 65vw);
   }
 }
 
