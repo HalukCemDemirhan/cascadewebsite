@@ -137,6 +137,10 @@
   .line-height-academic {
     line-height: 1.6;
   }
+  
+  .text-justify {
+    text-align: justify;
+  }
 
   /* Custom link styles */
   .academic-link {

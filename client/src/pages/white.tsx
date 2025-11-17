@@ -64,8 +64,8 @@ export default function White() {
       </header>
 
       {/* Main Content */}
-      <main className="w-full px-8 md:px-16 pb-8">
-        <div className="max-w-2xl mx-auto academic-content">
+      <main className="w-full px-8 md:px-16 pb-8 flex justify-center">
+        <div className="max-w-2xl w-full academic-content">
           {/* Intro Section */}
           <section id="research" className="mb-12">
             <h1
@@ -76,7 +76,7 @@ export default function White() {
             </h1>
 
             <p
-              className="text-lg md:text-xl line-height-academic mb-8 italic"
+              className="text-lg md:text-xl line-height-academic mb-8 italic text-justify"
               style={{ color: "#d0d0c8" }}
             >
               Systems capable of unprecedented autonomy & intelligence now
@@ -99,7 +99,7 @@ export default function White() {
               I. Agency Without Accountability
             </h2>
             <p
-              className="text-lg line-height-academic mb-6"
+              className="text-lg line-height-academic mb-6 text-justify"
               style={{ color: "#f5f5f0" }}
             >
               Artificial intelligence has fundamentally expanded what systems
@@ -107,7 +107,7 @@ export default function White() {
               out of reach. The bottleneck is not performance – it's trust.
             </p>
             <p
-              className="text-lg line-height-academic mb-6"
+              className="text-lg line-height-academic mb-6 text-justify"
               style={{ color: "#f5f5f0" }}
             >
               Agentic systems can operate at scales and speeds impossible for
@@ -125,7 +125,7 @@ export default function White() {
               II. The Stochastic Foundation
             </h2>
             <p
-              className="text-lg line-height-academic mb-6"
+              className="text-lg line-height-academic mb-6 text-justify"
               style={{ color: "#f5f5f0" }}
             >
               Traditional software is built deterministically. You can audit the
@@ -133,7 +133,7 @@ export default function White() {
               controlling inputs and constraining permissions.
             </p>
             <p
-              className="text-lg line-height-academic mb-6"
+              className="text-lg line-height-academic mb-6 text-justify"
               style={{ color: "#f5f5f0" }}
             >
               Agentic systems are fundamentally different. They are built on
@@ -153,7 +153,7 @@ export default function White() {
               III. Transparency as Security Infrastructure
             </h2>
             <p
-              className="text-lg line-height-academic mb-6"
+              className="text-lg line-height-academic mb-6 text-justify"
               style={{ color: "#f5f5f0" }}
             >
               If agents are to operate in mission-critical environments,
@@ -162,7 +162,7 @@ export default function White() {
               foundation of security.
             </p>
             <p
-              className="text-lg line-height-academic mb-8"
+              className="text-lg line-height-academic mb-8 text-justify"
               style={{ color: "#f5f5f0" }}
             >
               AI security demands continuous structured observation: tracing
@@ -179,7 +179,7 @@ export default function White() {
               The Reliability Threshold
             </h2>
             <p
-              className="text-lg line-height-academic mb-6"
+              className="text-lg line-height-academic mb-6 text-justify"
               style={{ color: "#f5f5f0" }}
             >
               We stand at an inflection point. Agentic systems have crossed the
@@ -190,7 +190,7 @@ export default function White() {
               deploy them where they matter most.
             </p>
             <p
-              className="text-lg line-height-academic mb-2"
+              className="text-lg line-height-academic mb-2 text-justify"
               style={{ color: "#f5f5f0" }}
             >
               We believe safety for agentic systems is the tipping point for
