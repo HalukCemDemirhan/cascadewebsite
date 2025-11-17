@@ -92,6 +92,13 @@ This is a full-stack web application for a research organization called "Percept
 - **Connection Pooling**: Neon serverless handles connection management
 - **Environment Configuration**: Production/development database separation
 
+### GitHub Pages Deployment
+1. Install dependencies locally: `npm install`.
+2. Build the static frontend with relative asset paths: `npm run pages:build`. This runs Vite in the `gh-pages` mode and writes the output to the repository-level `docs/` directory with an `index.html` at the root plus hashed assets.
+3. Commit the generated `docs/` folder (and its `.nojekyll` file) to your repository.
+4. In your repository settings on GitHub, enable Pages and select the `main` branch with the `/docs` folder as the publishing source. GitHub Pages will now serve the site from `https://<username>.github.io/<repo-name>/`.
+5. Repeat the build + commit cycle whenever you update the frontend so GitHub Pages receives the fresh static assets.
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
