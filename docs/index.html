@@ -26,45 +26,46 @@
         <p class="lede">
           Systems capable of unprecedented autonomy &amp; intelligence now exist, yet they remain constrained by our inability to verify their safety &amp; reliability.
         </p>
-        <div class="grid" aria-hidden="true"></div>
+        <figure class="hero">
+          <canvas id="entropy-canvas" width="320" height="320" aria-hidden="true"></canvas>
+        </figure>
       </header>
 
       <main class="page__content" id="research">
-
         <section class="section">
           <h2>I. Agency Without Accountability</h2>
           <p>
-            Artificial intelligence has fundamentally expanded what systems can do, yet deployment in mission-critical environments remains out of reach. The bottleneck is not performance—it’s trust.
+            Artificial intelligence has fundamentally expanded what systems can do, yet deployment in mission-critical environments remains out of reach. The bottleneck is not performance – it's trust.
           </p>
           <p>
-            Agentic systems can operate at scales and speeds impossible for human oversight, unlocking efficiency across every domain requiring judgment, adaptation, and decision-making. But without infrastructure to verify their reasoning, detect failures, and validate alignment, we cannot grant the autonomy their capabilities demand.
+            Agentic systems can operate at scales and speeds impossible for human oversight, unlocking efficiency across every domain that requires judgment, adaptation, and decision-making. But without the infrastructure to verify their reasoning, detect their failures, and validate their alignment, we remain unable to grant them the autonomy their capabilities demand.
           </p>
         </section>
 
         <section class="section">
           <h2>II. The Stochastic Foundation</h2>
           <p>
-            Traditional software is built deterministically—logic can be audited, execution traced, outcomes predicted. Security meant controlling inputs and constraining permissions.
+            Traditional software is built deterministically. You can audit the logic, trace the execution, predict the outcome. Security meant controlling inputs and constraining permissions.
           </p>
           <p>
-            Agentic systems are fundamentally different. Built on stochastic foundations—probabilistic, emergent, irreducible to simple rules—they appear to reason through weighted possibilities. Security paradigms for deterministic systems fail here. Threat vectors are dynamic, hidden in reasoning processes. Protecting stochastic systems demands semantic understanding of those processes; static proxies are no longer sufficient.
+            Agentic systems are fundamentally different. They are built on stochastic foundations; probabilistic, emergent, and irreducible to simple rules. What appears as reasoning is a cascade of weighted possibilities. Security paradigms built for deterministic systems fail here. The threat vectors aren't static vulnerabilities, they're hidden in dynamic reasoning processes. Security and reliability now require semantic understanding of the process itself. Static proxies cannot protect stochastic systems.
           </p>
         </section>
 
         <section class="section">
           <h2>III. Transparency as Security Infrastructure</h2>
           <p>
-            If agents are to operate in mission-critical environments—healthcare, finance, and domains where failure is unacceptable—visibility cannot be an afterthought. It must be the foundation of security.
+            If agents are to operate in mission-critical environments, healthcare, finance, and systems where failure is unacceptable, then visibility cannot be an afterthought. It must be the foundation of security.
           </p>
           <p>
-            AI security demands continuous, structured observation: tracing reasoning paths, mapping semantic topologies of decisions, detecting drift, anomalies, manipulation, and misalignment as they emerge. Transparency is not supplementary; it is foundational.
+            AI security demands continuous structured observation: tracing reasoning paths, mapping the semantic topology of decisions, detecting drift, anomalies, manipulation, and misalignment as they emerge. Transparency in this case is not supplementary, it's foundational.
           </p>
         </section>
 
         <section class="section">
           <h2>The Reliability Threshold</h2>
           <p>
-            We stand at an inflection point. Agentic systems have crossed the capability frontier yet fall short of the security requirements needed for real deployment. Until we observe their reasoning, verify safety, detect adversarial behavior, and trust decisions under uncertainty, we cannot deploy them where they matter most.
+            We stand at an inflection point. Agentic systems have crossed the capability frontier, but still fall short of the security requirements necessary for real deployment. Until we can observe their reasoning, verify their safety, detect adversarial behavior, and trust their decisions under uncertainty, we remain unable to deploy them where they matter most.
           </p>
           <p>
             We believe safety for agentic systems is the tipping point for true AI adoption.
@@ -76,18 +77,177 @@
         <p>© 2025 Cascade Intelligence Corporation</p>
       </footer>
     </div>
-
     <script>
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", (event) => {
-          event.preventDefault();
-          const id = anchor.getAttribute("href");
-          const target = document.querySelector(id);
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
+      (function () {
+        const canvas = document.getElementById("entropy-canvas");
+        if (!canvas) return;
+
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        const baseSize = 320;
+        function resizeCanvas() {
+          const dpr = window.devicePixelRatio || 1;
+          const target = Math.min(baseSize, window.innerWidth * 0.6);
+          canvas.width = target * dpr;
+          canvas.height = target * dpr;
+          canvas.style.width = `${target}px`;
+          canvas.style.height = `${target}px`;
+          if (typeof ctx.resetTransform === "function") {
+            ctx.resetTransform();
+          } else {
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
           }
+          ctx.scale(dpr, dpr);
+          return target;
+        }
+
+        let size = resizeCanvas();
+        window.addEventListener("resize", () => {
+          size = resizeCanvas();
+          initializeParticles();
         });
-      });
+
+        const particleColor = "#f5f5f0";
+
+        class Particle {
+          constructor(x, y, order) {
+            this.x = x;
+            this.y = y;
+            this.originalX = x;
+            this.originalY = y;
+            this.size = 2;
+            this.order = order;
+            this.velocity = {
+              x: (Math.random() - 0.5) * 0.4,
+              y: (Math.random() - 0.5) * 0.4,
+            };
+            this.influence = 0;
+            this.neighbors = [];
+          }
+          update() {
+            if (this.order) {
+              const dx = this.originalX - this.x;
+              const dy = this.originalY - this.y;
+              const chaosInfluence = { x: 0, y: 0 };
+              this.neighbors.forEach((neighbor) => {
+                if (!neighbor.order) {
+                  const distance = Math.hypot(
+                    this.x - neighbor.x,
+                    this.y - neighbor.y,
+                  );
+                  const strength = Math.max(0, 1 - distance / 100);
+                  chaosInfluence.x += neighbor.velocity.x * strength;
+                  chaosInfluence.y += neighbor.velocity.y * strength;
+                  this.influence = Math.max(this.influence, strength);
+                }
+              });
+              this.x +=
+                dx * 0.05 * (1 - this.influence) +
+                chaosInfluence.x * this.influence;
+              this.y +=
+                dy * 0.05 * (1 - this.influence) +
+                chaosInfluence.y * this.influence;
+              this.influence *= 0.99;
+            } else {
+              this.velocity.x += (Math.random() - 0.5) * 0.1;
+              this.velocity.y += (Math.random() - 0.5) * 0.1;
+              this.velocity.x *= 0.98;
+              this.velocity.y *= 0.98;
+              this.x += this.velocity.x;
+              this.y += this.velocity.y;
+              if (this.x < size / 2 || this.x > size) this.velocity.x *= -1;
+              if (this.y < 0 || this.y > size) this.velocity.y *= -1;
+              this.x = Math.max(size / 2, Math.min(size, this.x));
+              this.y = Math.max(0, Math.min(size, this.y));
+            }
+          }
+          draw(context) {
+            const alpha = this.order ? 0.5 - this.influence * 0.3 : 0.5;
+            context.fillStyle =
+              particleColor +
+              Math.round(alpha * 255)
+                .toString(16)
+                .padStart(2, "0");
+            context.beginPath();
+            context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            context.fill();
+          }
+        }
+
+        let particles = [];
+        function initializeParticles() {
+          particles = [];
+          const gridSize = 15;
+          const spacing = size / gridSize;
+          for (let i = 0; i < gridSize; i++) {
+            for (let j = 0; j < gridSize; j++) {
+              const x = spacing * i + spacing / 2;
+              const y = spacing * j + spacing / 2;
+              const order = x < size / 2;
+              particles.push(new Particle(x, y, order));
+            }
+          }
+          updateNeighbors();
+        }
+
+        function updateNeighbors() {
+          particles.forEach((particle) => {
+            particle.neighbors = particles.filter((other) => {
+              if (other === particle) return false;
+              const distance = Math.hypot(
+                particle.x - other.x,
+                particle.y - other.y,
+              );
+              return distance < 100;
+            });
+          });
+        }
+
+        let time = 0;
+        let animationId = null;
+        function animate() {
+          ctx.clearRect(0, 0, size, size);
+          if (time % 30 === 0) updateNeighbors();
+          particles.forEach((particle) => {
+            particle.update();
+            particle.draw(ctx);
+            particle.neighbors.forEach((neighbor) => {
+              const distance = Math.hypot(
+                particle.x - neighbor.x,
+                particle.y - neighbor.y,
+              );
+              if (distance < 50) {
+                const alpha = 0.1 * (1 - distance / 50);
+                ctx.strokeStyle =
+                  particleColor +
+                  Math.round(alpha * 255)
+                    .toString(16)
+                    .padStart(2, "0");
+                ctx.beginPath();
+                ctx.moveTo(particle.x, particle.y);
+                ctx.lineTo(neighbor.x, neighbor.y);
+                ctx.stroke();
+              }
+            });
+          });
+          ctx.strokeStyle = `${particleColor}4D`;
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(size / 2, 0);
+          ctx.lineTo(size / 2, size);
+          ctx.stroke();
+          time += 1;
+          animationId = requestAnimationFrame(animate);
+        }
+
+        initializeParticles();
+        animate();
+
+        window.addEventListener("beforeunload", () => {
+          if (animationId) cancelAnimationFrame(animationId);
+        });
+      })();
     </script>
   </body>
 </html>
