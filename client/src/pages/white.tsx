@@ -38,14 +38,14 @@ export default function White() {
       style={{ backgroundColor: "#2d5a4a", color: "#f5f5f0" }}
     >
       <SEO
-        title="Cascade — Infrastructure for Safe Autonomous Systems"
+        title="Cascade - Infrastructure for Safe Autonomous Systems"
         description="Cascade builds the security and observability infrastructure for autonomous AI. We enable transparent reasoning, continuous monitoring, and safe agent deployment."
         keywords="AI security, agentic systems, AI observability, autonomous AI, AI reliability, agent safety, Cascade"
         canonical="https://cascadesec.com/"
-        ogTitle="Cascade — Infrastructure for Safe Autonomous Systems"
+        ogTitle="Cascade - Infrastructure for Safe Autonomous Systems"
         ogDescription="Cascade builds the security and observability infrastructure for autonomous AI. We enable transparent reasoning, continuous monitoring, and safe agent deployment."
         ogUrl="https://cascadesec.com/"
-        twitterTitle="Cascade — Infrastructure for Safe Autonomous Systems"
+        twitterTitle="Cascade - Infrastructure for Safe Autonomous Systems"
         twitterDescription="Cascade builds the security and observability infrastructure for autonomous AI. We enable transparent reasoning, continuous monitoring, and safe agent deployment."
       />
 
