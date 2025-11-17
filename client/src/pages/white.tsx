@@ -47,43 +47,6 @@ export default function White() {
         ogUrl="https://cascadesec.com/"
         twitterTitle="Cascade - Infrastructure for Safe Autonomous Systems"
         twitterDescription="Cascade builds the security and observability infrastructure for autonomous AI. We enable transparent reasoning, continuous monitoring, and safe agent deployment."
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Organization",
-              "@id": "https://cascadesec.com/#organization",
-              "name": "Cascade",
-              "url": "https://cascadesec.com",
-              "description": "Cascade builds the security and observability infrastructure for autonomous AI. We enable transparent reasoning, continuous monitoring, and safe agent deployment.",
-              "logo": "https://cascadesec.com/logo.png",
-              "foundingDate": "2025",
-              "sameAs": []
-            },
-            {
-              "@type": "WebSite",
-              "@id": "https://cascadesec.com/#website",
-              "url": "https://cascadesec.com",
-              "name": "Cascade",
-              "publisher": {
-                "@id": "https://cascadesec.com/#organization"
-              }
-            },
-            {
-              "@type": "WebPage",
-              "@id": "https://cascadesec.com/#webpage",
-              "url": "https://cascadesec.com",
-              "name": "Cascade — Infrastructure for Safe Autonomous Systems",
-              "description": "Cascade builds the security and observability infrastructure for autonomous AI. We enable transparent reasoning, continuous monitoring, and safe agent deployment.",
-              "isPartOf": {
-                "@id": "https://cascadesec.com/#website"
-              },
-              "about": {
-                "@id": "https://cascadesec.com/#organization"
-              }
-            }
-          ]
-        }}
       />
 
       {/* Header */}
@@ -220,17 +183,18 @@ export default function White() {
               style={{ color: "#f5f5f0" }}
             >
               We stand at an inflection point. Agentic systems have crossed the
-              capability threshold, but not the security threshold. Until we can
-              observe their reasoning, verify their safety, detect adversarial
-              behavior, and trust their decisions under uncertainty, we remain
-              unable to deploy them where they matter most.
+              capability frontier, but still fall short of the security
+              requirements necessary for real deployment. Until we can observe
+              their reasoning, verify their safety, detect adversarial behavior,
+              and trust their decisions under uncertainty, we remain unable to
+              deploy them where they matter most.
             </p>
             <p
               className="text-lg line-height-academic mb-2"
               style={{ color: "#f5f5f0" }}
             >
-              We believe safety infrastructure for agentic systems is the
-              tipping point for true AI adoption.
+              We believe safety for agentic systems is the tipping point for
+              true AI adoption.
             </p>
           </section>
         </div>
