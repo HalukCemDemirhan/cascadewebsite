@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router as WouterRouter } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,22 +7,24 @@ import White from "@/pages/white";
 import Investors from "@/pages/investors";
 import NotFound from "@/pages/not-found";
 
-function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={White} />
-      <Route path="/investors" component={Investors} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
+const basePath =
+  typeof window !== "undefined"
+    ? new URL(import.meta.env.BASE_URL, window.location.href)
+        .pathname.replace(/\/$/, "")
+    : "";
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Router />
+        <WouterRouter base={basePath}>
+          <Switch>
+            <Route path="/" component={White} />
+            <Route path="/investors" component={Investors} />
+            <Route component={NotFound} />
+          </Switch>
+        </WouterRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );
