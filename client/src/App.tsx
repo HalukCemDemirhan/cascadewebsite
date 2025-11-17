@@ -7,10 +7,10 @@ import White from "@/pages/white";
 import Investors from "@/pages/investors";
 import NotFound from "@/pages/not-found";
 
+const configuredBase =
+  import.meta.env.VITE_PUBLIC_BASE_PATH ?? import.meta.env.BASE_URL ?? "/";
 const basePath =
-  import.meta.env.BASE_URL === "/"
-    ? ""
-    : import.meta.env.BASE_URL.replace(/\/$/, "");
+  configuredBase === "/" ? "" : configuredBase.replace(/\/$/, "");
 
 function App() {
   return (

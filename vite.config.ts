@@ -3,6 +3,8 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
+const ghPagesBasePath = "/cascadewebsite/";
+
 export default defineConfig(async ({ mode }) => {
   const isGhPages = mode === "gh-pages";
   const plugins = [react(), runtimeErrorOverlay()];
@@ -13,7 +15,7 @@ export default defineConfig(async ({ mode }) => {
   }
 
   return {
-    base: isGhPages ? "./" : "/",
+    base: isGhPages ? ghPagesBasePath : "/",
     plugins,
     resolve: {
       alias: {
