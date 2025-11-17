@@ -47,6 +47,43 @@ export default function White() {
         ogUrl="https://cascadesec.com/"
         twitterTitle="Cascade - Infrastructure for Safe Autonomous Systems"
         twitterDescription="Cascade builds the security and observability infrastructure for autonomous AI. We enable transparent reasoning, continuous monitoring, and safe agent deployment."
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://cascadesec.com/#organization",
+              "name": "Cascade",
+              "url": "https://cascadesec.com",
+              "description": "Cascade builds the security and observability infrastructure for autonomous AI. We enable transparent reasoning, continuous monitoring, and safe agent deployment.",
+              "logo": "https://cascadesec.com/logo.png",
+              "foundingDate": "2025",
+              "sameAs": []
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://cascadesec.com/#website",
+              "url": "https://cascadesec.com",
+              "name": "Cascade",
+              "publisher": {
+                "@id": "https://cascadesec.com/#organization"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://cascadesec.com/#webpage",
+              "url": "https://cascadesec.com",
+              "name": "Cascade — Infrastructure for Safe Autonomous Systems",
+              "description": "Cascade builds the security and observability infrastructure for autonomous AI. We enable transparent reasoning, continuous monitoring, and safe agent deployment.",
+              "isPartOf": {
+                "@id": "https://cascadesec.com/#website"
+              },
+              "about": {
+                "@id": "https://cascadesec.com/#organization"
+              }
+            }
+          ]
+        }}
       />
 
       {/* Header */}
@@ -117,14 +154,6 @@ export default function White() {
               failures, and validate their alignment, we remain unable to grant
               them the autonomy their capabilities demand.
             </p>
-            <p
-              className="text-lg line-height-academic mb-6"
-              style={{ color: "#f5f5f0" }}
-            >
-              The gap between potential and deployment is not technical. It's
-              structural. We lack the foundational layer that makes trust
-              possible at scale.
-            </p>
 
             <h2
               className="text-lg md:text-xl font-bold mb-4"
@@ -144,23 +173,14 @@ export default function White() {
               className="text-lg line-height-academic mb-6"
               style={{ color: "#f5f5f0" }}
             >
-              Agentic systems are fundamentally different. They are built on a
-              stochastic foundation, probabilistic, emergent, and irreducible to
-              simple rules. What appears as reasoning is a cascade of weighted
-              possibilities. What appears as intent might be manipulation.
-              Patterns emerge from seemingly unstructured data. Behaviors shift
-              without warning.
-            </p>
-            <p
-              className="text-lg line-height-academic mb-6"
-              style={{ color: "#f5f5f0" }}
-            >
-              Security paradigms built for deterministic systems fail here. The
-              threat isn't a vulnerability in static code, it's dynamic
-              reasoning that operates on semantic understanding. If we cannot
-              trace how an agent thinks, we cannot verify it is safe. If we
-              cannot interpret its decisions, we cannot detect when it has been
-              compromised. Defense requires visibility into the process itself.
+              Agentic systems are fundamentally different. They are built on
+              stochastic foundations; probabilistic, emergent, and irreducible
+              to simple rules. What appears as reasoning is a cascade of
+              weighted possibilities. Security paradigms built for deterministic
+              systems fail here. The threat vectors aren't static
+              vulnerabilities, they're hidden in dynamic reasoning processes.
+              Security and reliability now require semanting understading of the
+              process itself. Static proxies cannot protect stochastic systems.
             </p>
 
             <h2
@@ -173,8 +193,8 @@ export default function White() {
               className="text-lg line-height-academic mb-6"
               style={{ color: "#f5f5f0" }}
             >
-              If agents are to operate in mission-critical environments -
-              healthcare, finance, and systems where failure is unacceptable -
+              If agents are to operate in mission-critical environments,
+              healthcare, finance, and systems where failure is unacceptable,
               then visibility cannot be an afterthought. It must be the
               foundation of security.
             </p>
@@ -185,8 +205,8 @@ export default function White() {
               AI security demands continuous structured observation: tracing
               reasoning paths, mapping the semantic topology of decisions,
               detecting drift, anomalies, manipulation, and misalignment as they
-              emerge. Static proxies cannot protect stochastic systems.
-              Transparency in this case is not supplementary, it's foundational.
+              emerge. Transparency in this case is not supplementary, it's
+              foundational.
             </p>
 
             <h2
@@ -209,8 +229,8 @@ export default function White() {
               className="text-lg line-height-academic mb-2"
               style={{ color: "#f5f5f0" }}
             >
-              We believe building the infrastructure for agentic security
-              through transparency is the tipping point for true AI adoption.
+              We believe safety infrastructure for agentic systems is the
+              tipping point for true AI adoption.
             </p>
           </section>
         </div>

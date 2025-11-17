@@ -10,6 +10,7 @@ interface SEOProps {
   ogUrl?: string;
   twitterTitle?: string;
   twitterDescription?: string;
+  jsonLd?: object;
 }
 
 export const useSEO = ({
@@ -22,6 +23,7 @@ export const useSEO = ({
   ogUrl,
   twitterTitle,
   twitterDescription,
+  jsonLd,
 }: SEOProps) => {
   useEffect(() => {
     // Update title
@@ -92,7 +94,18 @@ export const useSEO = ({
         twitterDescMeta.setAttribute('content', twitterDescription);
       }
     }
-  }, [title, description, keywords, canonical, ogTitle, ogDescription, ogUrl, twitterTitle, twitterDescription]);
+
+    // Update JSON-LD structured data
+    if (jsonLd) {
+      let script = document.querySelector('script[type="application/ld+json"]');
+      if (!script) {
+        script = document.createElement('script');
+        script.setAttribute('type', 'application/ld+json');
+        document.head.appendChild(script);
+      }
+      script.textContent = JSON.stringify(jsonLd, null, 2);
+    }
+  }, [title, description, keywords, canonical, ogTitle, ogDescription, ogUrl, twitterTitle, twitterDescription, jsonLd]);
 };
 
 // SEO Component for easier usage
