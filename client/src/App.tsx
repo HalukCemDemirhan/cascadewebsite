@@ -8,10 +8,9 @@ import Investors from "@/pages/investors";
 import NotFound from "@/pages/not-found";
 
 const basePath =
-  typeof window !== "undefined"
-    ? new URL(import.meta.env.BASE_URL, window.location.href)
-        .pathname.replace(/\/$/, "")
-    : "";
+  import.meta.env.BASE_URL === "/"
+    ? ""
+    : import.meta.env.BASE_URL.replace(/\/$/, "");
 
 function App() {
   return (
